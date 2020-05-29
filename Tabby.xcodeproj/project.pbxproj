@@ -9,16 +9,14 @@
 /* Begin PBXBuildFile section */
 		94413AA624806F9800329A04 /* Tabby.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 94413AA524806F9800329A04 /* Tabby.entitlements */; };
 		94413AA824806F9800329A04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413AA724806F9800329A04 /* AppDelegate.swift */; };
-		94413AAB24806F9800329A04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94413AA924806F9800329A04 /* Main.storyboard */; };
-		94413AAD24806F9800329A04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413AAC24806F9800329A04 /* ViewController.swift */; };
-		94413AAF24806F9B00329A04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94413AAE24806F9B00329A04 /* Assets.xcassets */; };
 		94413AB624806F9C00329A04 /* Tabby Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 94413AB524806F9C00329A04 /* Tabby Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		94413ABB24806F9C00329A04 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94413ABA24806F9C00329A04 /* Cocoa.framework */; };
-		94413ABE24806F9C00329A04 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413ABD24806F9C00329A04 /* SafariExtensionHandler.swift */; };
-		94413AC024806F9C00329A04 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413ABF24806F9C00329A04 /* SafariExtensionViewController.swift */; };
-		94413AC324806F9C00329A04 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94413AC124806F9C00329A04 /* SafariExtensionViewController.xib */; };
-		94413AC624806F9C00329A04 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 94413AC524806F9C00329A04 /* script.js */; };
-		94413AC824806F9C00329A04 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 94413AC724806F9C00329A04 /* ToolbarItemIcon.pdf */; };
+		94413AD424807C7C00329A04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94413AD324807C7C00329A04 /* Main.storyboard */; };
+		94413AD624807C9700329A04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94413AD524807C9700329A04 /* Assets.xcassets */; };
+		94413AD824807CA500329A04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413AD724807CA500329A04 /* ViewController.swift */; };
+		94413ADA24807D6100329A04 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413AD924807D6100329A04 /* SafariExtensionHandler.swift */; };
+		94413AE3248083E100329A04 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 94413AE1248083E100329A04 /* ToolbarItemIcon.pdf */; };
+		94413AE4248083E100329A04 /* ToolbarItemIconCopied.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 94413AE2248083E100329A04 /* ToolbarItemIconCopied.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,19 +47,17 @@
 		94413AA224806F9800329A04 /* Tabby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tabby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94413AA524806F9800329A04 /* Tabby.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tabby.entitlements; sourceTree = "<group>"; };
 		94413AA724806F9800329A04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		94413AAA24806F9800329A04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		94413AAC24806F9800329A04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		94413AAE24806F9B00329A04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94413AB024806F9B00329A04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94413AB524806F9C00329A04 /* Tabby Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Tabby Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94413ABA24806F9C00329A04 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		94413ABD24806F9C00329A04 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
-		94413ABF24806F9C00329A04 /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
-		94413AC224806F9C00329A04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		94413AC424806F9C00329A04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		94413AC524806F9C00329A04 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
-		94413AC724806F9C00329A04 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		94413AC924806F9C00329A04 /* Tabby_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tabby_Extension.entitlements; sourceTree = "<group>"; };
+		94413AD324807C7C00329A04 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		94413AD524807C9700329A04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		94413AD724807CA500329A04 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		94413AD924807D6100329A04 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
+		94413AE1248083E100329A04 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIcon.pdf; path = Art/Flat/ToolbarItemIcon.pdf; sourceTree = SOURCE_ROOT; };
+		94413AE2248083E100329A04 /* ToolbarItemIconCopied.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIconCopied.pdf; path = Art/Flat/ToolbarItemIconCopied.pdf; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +103,9 @@
 			children = (
 				94413AA524806F9800329A04 /* Tabby.entitlements */,
 				94413AA724806F9800329A04 /* AppDelegate.swift */,
-				94413AA924806F9800329A04 /* Main.storyboard */,
-				94413AAC24806F9800329A04 /* ViewController.swift */,
-				94413AAE24806F9B00329A04 /* Assets.xcassets */,
+				94413AD324807C7C00329A04 /* Main.storyboard */,
+				94413AD724807CA500329A04 /* ViewController.swift */,
+				94413AD524807C9700329A04 /* Assets.xcassets */,
 				94413AB024806F9B00329A04 /* Info.plist */,
 			);
 			path = Tabby;
@@ -126,12 +122,10 @@
 		94413ABC24806F9C00329A04 /* Tabby Extension */ = {
 			isa = PBXGroup;
 			children = (
-				94413ABD24806F9C00329A04 /* SafariExtensionHandler.swift */,
-				94413ABF24806F9C00329A04 /* SafariExtensionViewController.swift */,
-				94413AC124806F9C00329A04 /* SafariExtensionViewController.xib */,
+				94413AD924807D6100329A04 /* SafariExtensionHandler.swift */,
+				94413AE1248083E100329A04 /* ToolbarItemIcon.pdf */,
+				94413AE2248083E100329A04 /* ToolbarItemIconCopied.pdf */,
 				94413AC424806F9C00329A04 /* Info.plist */,
-				94413AC524806F9C00329A04 /* script.js */,
-				94413AC724806F9C00329A04 /* ToolbarItemIcon.pdf */,
 				94413AC924806F9C00329A04 /* Tabby_Extension.entitlements */,
 			);
 			path = "Tabby Extension";
@@ -218,9 +212,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94413AD424807C7C00329A04 /* Main.storyboard in Resources */,
+				94413AD624807C9700329A04 /* Assets.xcassets in Resources */,
 				94413AA624806F9800329A04 /* Tabby.entitlements in Resources */,
-				94413AAF24806F9B00329A04 /* Assets.xcassets in Resources */,
-				94413AAB24806F9800329A04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,9 +222,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94413AC824806F9C00329A04 /* ToolbarItemIcon.pdf in Resources */,
-				94413AC324806F9C00329A04 /* SafariExtensionViewController.xib in Resources */,
-				94413AC624806F9C00329A04 /* script.js in Resources */,
+				94413AE4248083E100329A04 /* ToolbarItemIconCopied.pdf in Resources */,
+				94413AE3248083E100329A04 /* ToolbarItemIcon.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94413AAD24806F9800329A04 /* ViewController.swift in Sources */,
+				94413AD824807CA500329A04 /* ViewController.swift in Sources */,
 				94413AA824806F9800329A04 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,8 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94413AC024806F9C00329A04 /* SafariExtensionViewController.swift in Sources */,
-				94413ABE24806F9C00329A04 /* SafariExtensionHandler.swift in Sources */,
+				94413ADA24807D6100329A04 /* SafariExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,25 +256,6 @@
 			targetProxy = 94413AB724806F9C00329A04 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		94413AA924806F9800329A04 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94413AAA24806F9800329A04 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		94413AC124806F9C00329A04 /* SafariExtensionViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94413AC224806F9C00329A04 /* Base */,
-			);
-			name = SafariExtensionViewController.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		94413ACA24806F9C00329A04 /* Debug */ = {
