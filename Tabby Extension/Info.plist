@@ -52,12 +52,6 @@
 			</dict>
 			<dict>
 				<key>Text</key>
-				<string>Copy Links  –  Unique Tabs</string>
-				<key>Command</key>
-				<string>copyUniques</string>
-			</dict>
-			<dict>
-				<key>Text</key>
 				<string>Close Duplicate Tabs</string>
 				<key>Command</key>
 				<string>closeDupes</string>

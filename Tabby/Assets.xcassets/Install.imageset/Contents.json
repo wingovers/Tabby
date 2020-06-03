@@ -1,23 +1,23 @@
 {
   "images" : [
     {
-      "filename" : "Tabby Install Screen.pdf",
+      "filename" : "TabbyToolbarInstallScreenBG.pdf",
       "idiom" : "mac",
       "scale" : "1x"
     },
     {
-      "filename" : "Tabby Install Screen-1.pdf",
+      "filename" : "TabbyToolbarInstallScreenBG-1.pdf",
       "idiom" : "mac",
       "scale" : "2x"
     },
     {
-      "filename" : "Tabby Install Screen-2.pdf",
+      "filename" : "TabbyToolbarInstallScreenBG-2.pdf",
       "idiom" : "mac",
       "locale" : "en",
       "scale" : "1x"
     },
     {
-      "filename" : "Tabby Install Screen-3.pdf",
+      "filename" : "TabbyToolbarInstallScreenBG-3.pdf",
       "idiom" : "mac",
       "locale" : "en",
       "scale" : "2x"

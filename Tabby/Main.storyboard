@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -77,7 +78,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Install Extension" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" animationBehavior="alertPanel" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
+                    <window key="window" title="Install Extension" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" animationBehavior="alertPanel" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
                         <rect key="contentRect" x="168" y="516" width="900" height="600"/>
@@ -104,11 +105,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Tabby" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="901" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="901" height="601"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xf9-4l-hsC" userLabel="toolbarImage">
-                                <rect key="frame" x="45" y="304" width="71" height="105"/>
+                                <rect key="frame" x="45" y="275" width="71" height="105"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="71" id="1Sn-t1-6X7"/>
                                 </constraints>
@@ -116,10 +117,10 @@
                                 <accessibility description="Copy Tabs Toolbar Icon" identifier="Copy Tabs Toolbar Icon"/>
                             </imageView>
                             <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXe-SX-Bmc" userLabel="toolbarText">
-                                <rect key="frame" x="136" y="308" width="200" height="72"/>
+                                <rect key="frame" x="136" y="324" width="200" height="32"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fNh-YX-VJe">
-                                        <rect key="frame" x="-2" y="40" width="204" height="32"/>
+                                        <rect key="frame" x="-2" y="0.0" width="204" height="32"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Tap the toolbar to..." placeholderString="Tap the Toolbar" id="vqw-of-Sp3">
                                             <font key="font" size="28" name="NanumPen"/>
                                             <color key="textColor" red="0.99519230769230771" green="0.99038461538461542" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -127,45 +128,34 @@
                                         </textFieldCell>
                                         <accessibility description="Tap the toolbar" identifier="Tap the toolbar"/>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Qd8-eH-dsP">
-                                        <rect key="frame" x="-2" y="0.0" width="88" height="32"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Features" placeholderString="Features" id="hQG-CF-bNd">
-                                            <font key="font" size="28" name="NanumPen"/>
-                                            <color key="textColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                        <accessibility description="To copy all tabs" identifier="To copy all tabs"/>
-                                    </textField>
                                 </subviews>
                                 <visibilityPriorities>
-                                    <integer value="1000"/>
                                     <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
                                     <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
                             <imageView identifier="context" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="176" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="xBS-qg-3b0" userLabel="context">
-                                <rect key="frame" x="45" y="110" width="71" height="148"/>
+                                <rect key="frame" x="45" y="126" width="71" height="148"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="71" id="Kvp-XJ-VCR"/>
                                     <constraint firstAttribute="width" secondItem="xBS-qg-3b0" secondAttribute="height" multiplier="71:148" id="OPi-G6-ODt"/>
                                 </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" identifier="contextMenuImage1" animates="YES" imageAlignment="top" imageScaling="proportionallyDown" image="RightClick" id="JLl-wZ-dZ1"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" identifier="contextMenuImage1" animates="YES" imageAlignment="top" imageScaling="proportionallyDown" image="DemoRightClick" id="JLl-wZ-dZ1"/>
                                 <accessibility description="Right Click Menu Screenshot" identifier="Right Click Menu Screenshot"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EB0-ac-UZR" userLabel="command">
-                                <rect key="frame" x="658" y="122" width="86" height="30"/>
+                                <rect key="frame" x="658" y="123" width="86" height="30"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Command" id="S7v-7o-3vW">
                                     <font key="font" size="26" name="NanumPen"/>
-                                    <color key="textColor" name="Teal"/>
+                                    <color key="textColor" name="Contrast"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <accessibility description="To start, open Safari Preferences" identifier="To start, open Safari Preferences"/>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ooh-eV-eLQ" userLabel="preferences">
-                                <rect key="frame" x="551" y="62" width="300" height="48"/>
+                                <rect key="frame" x="551" y="63" width="300" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="j5F-DW-gcP"/>
                                     <constraint firstAttribute="height" constant="48" id="jvR-aO-f3J"/>
@@ -177,17 +167,17 @@
 DQ
 </string>
                                 </buttonCell>
-                                <color key="contentTintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="contentTintColor" name="Background"/>
                                 <accessibility description="Button to open Safari Preferences" identifier="Button to open Safari Preferences"/>
                                 <connections>
                                     <action selector="openSafariExtensionPreferences:" target="XfG-lQ-9wD" id="bQe-09-TV8"/>
                                 </connections>
                             </button>
                             <stackView distribution="equalSpacing" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZeE-tg-uu3" userLabel="rightClickText">
-                                <rect key="frame" x="136" y="186" width="375" height="72"/>
+                                <rect key="frame" x="136" y="215" width="375" height="64"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HbS-P9-wko">
-                                        <rect key="frame" x="-2" y="40" width="156" height="32"/>
+                                        <rect key="frame" x="-2" y="32" width="156" height="32"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Right click to..." placeholderString="Right Click" id="2Ac-Bs-Ksh">
                                             <font key="font" size="28" name="NanumPen"/>
                                             <color key="textColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -206,7 +196,7 @@ DQ
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="UPD-pS-KvM" firstAttribute="top" secondItem="HbS-P9-wko" secondAttribute="bottom" constant="8" id="HKC-uF-RwR"/>
+                                    <constraint firstItem="UPD-pS-KvM" firstAttribute="top" secondItem="HbS-P9-wko" secondAttribute="bottom" id="HKC-uF-RwR"/>
                                     <constraint firstAttribute="width" constant="375" id="m1Z-1d-bHX"/>
                                 </constraints>
                                 <visibilityPriorities>
@@ -218,29 +208,50 @@ DQ
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jwd-0d-7TZ">
+                                <rect key="frame" x="668" y="39" width="67" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Catalina Bug" placeholderString=" " id="SVa-Ar-XzV">
+                                    <font key="font" size="14" name="NanumPen"/>
+                                    <color key="textColor" name="Contrast"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-zz-Zo1" userLabel="wink">
+                                <rect key="frame" x="633" y="334" width="267" height="267"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="267" id="MRy-Cy-wZM"/>
+                                    <constraint firstAttribute="height" constant="267" id="V5J-xm-s3h"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageAlignment="topRight" imageScaling="proportionallyUpOrDown" image="InstallWink" id="ihX-h6-RgL"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ZeE-tg-uu3" firstAttribute="leading" secondItem="xBS-qg-3b0" secondAttribute="trailing" constant="20" id="LR8-Jy-LDU"/>
+                            <constraint firstItem="Jwd-0d-7TZ" firstAttribute="top" secondItem="ooh-eV-eLQ" secondAttribute="bottom" constant="8" id="P5x-kL-GMO"/>
                             <constraint firstItem="ooh-eV-eLQ" firstAttribute="top" secondItem="EB0-ac-UZR" secondAttribute="bottom" constant="12" id="Ruv-bf-7l0"/>
-                            <constraint firstItem="Xf9-4l-hsC" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="191" id="UVe-Uv-qDj"/>
+                            <constraint firstItem="Xf9-4l-hsC" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="221" id="UVe-Uv-qDj"/>
                             <constraint firstItem="bXe-SX-Bmc" firstAttribute="leading" secondItem="Xf9-4l-hsC" secondAttribute="trailing" constant="20" id="Vdd-Ou-q1s"/>
                             <constraint firstAttribute="trailing" secondItem="ooh-eV-eLQ" secondAttribute="trailing" constant="50" id="ZUo-5r-Sbh"/>
-                            <constraint firstItem="ZeE-tg-uu3" firstAttribute="top" secondItem="xBS-qg-3b0" secondAttribute="top" id="a71-fK-m03"/>
-                            <constraint firstItem="bXe-SX-Bmc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="220" id="dqh-3z-UUa"/>
+                            <constraint firstItem="ZeE-tg-uu3" firstAttribute="top" secondItem="xBS-qg-3b0" secondAttribute="top" constant="-5" id="a71-fK-m03"/>
+                            <constraint firstItem="bXe-SX-Bmc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="245" id="dqh-3z-UUa"/>
                             <constraint firstItem="Xf9-4l-hsC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="45" id="gQg-aI-l9H"/>
                             <constraint firstItem="xBS-qg-3b0" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="45" id="k1T-zh-sSz"/>
                             <constraint firstItem="xBS-qg-3b0" firstAttribute="top" secondItem="bXe-SX-Bmc" secondAttribute="bottom" constant="50" id="kBs-zc-Hwn"/>
                             <constraint firstItem="EB0-ac-UZR" firstAttribute="centerX" secondItem="ooh-eV-eLQ" secondAttribute="centerX" id="kff-oG-RGO"/>
+                            <constraint firstItem="QYk-zz-Zo1" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="0.5" id="quT-77-0bo"/>
+                            <constraint firstItem="Jwd-0d-7TZ" firstAttribute="centerX" secondItem="ooh-eV-eLQ" secondAttribute="centerX" id="x7Y-gF-WHq"/>
                             <constraint firstAttribute="top" secondItem="ooh-eV-eLQ" secondAttribute="top" constant="-490" id="y8g-An-dY5"/>
+                            <constraint firstAttribute="trailing" secondItem="QYk-zz-Zo1" secondAttribute="trailing" constant="1" id="zsx-jq-lQg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="buttonCommandLabel" destination="EB0-ac-UZR" id="XtX-Mn-Kuv"/>
+                        <outlet property="catalinaBugLabel" destination="Jwd-0d-7TZ" id="Dfp-qH-u5v"/>
                         <outlet property="openSafariExtensionPreferences" destination="ooh-eV-eLQ" id="bbE-MV-Vkh"/>
                         <outlet property="rightClickCopyLabel" destination="UPD-pS-KvM" id="jLj-8W-t5n"/>
                         <outlet property="rightClickHeadlineLabel" destination="HbS-P9-wko" id="FtQ-9z-HjW"/>
-                        <outlet property="toolbarTapCopyLabel" destination="Qd8-eH-dsP" id="dW7-ow-bhd"/>
                         <outlet property="toolbarTapHeadlineLabel" destination="fNh-YX-VJe" id="CtL-4U-qVa"/>
+                        <outlet property="winkBGImage" destination="QYk-zz-Zo1" id="xjT-KI-MSG"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -251,9 +262,13 @@ DQ
     <resources>
         <image name="Button" width="750" height="114"/>
         <image name="DemoMenuIcon" width="168" height="105"/>
-        <image name="RightClick" width="168" height="125"/>
-        <namedColor name="Teal">
-            <color red="0.10980392156862745" green="0.58823529411764708" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="DemoRightClick" width="168" height="125"/>
+        <image name="InstallWink" width="223" height="223"/>
+        <namedColor name="Background">
+            <color red="0.51764705882352946" green="0.2627450980392157" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Contrast">
+            <color red="0.94901960784313721" green="0.6470588235294118" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

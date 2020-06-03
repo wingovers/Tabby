@@ -24,6 +24,11 @@
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSExtension</key>
+	<dict>
+		<key>NSExtensionMainNibFile</key>
+		<string>SafariExtensionViewController</string>
+	</dict>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 Ryan Ferrell. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
@@ -34,10 +39,5 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
-	<key>NSExtension</key>
-	<dict>
-		<key>NSExtensionMainNibFile</key>
-		<string>SafariExtensionViewController</string>
-	</dict>
 </dict>
 </plist>
