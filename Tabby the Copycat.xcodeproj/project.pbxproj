@@ -376,6 +376,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Tabby Extension/Tabby_Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FVC2SFVFYG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Tabby Extension/Info.plist";
@@ -384,7 +385,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "wingover.Tabby-Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = wingover.Tabby.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -396,6 +397,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Tabby Extension/Tabby_Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FVC2SFVFYG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Tabby Extension/Info.plist";
@@ -404,7 +406,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "wingover.Tabby-Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = wingover.Tabby.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -419,6 +421,7 @@
 				CODE_SIGN_ENTITLEMENTS = Tabby/Tabby.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FVC2SFVFYG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Tabby/Info.plist;
@@ -441,6 +444,7 @@
 				CODE_SIGN_ENTITLEMENTS = Tabby/Tabby.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FVC2SFVFYG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Tabby/Info.plist;
