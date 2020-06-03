@@ -13,18 +13,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Tabs to Clipboard" id="1Xt-HY-uBw">
+                            <menuItem title="Tabby the Copycat" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Tabs to Clipboard" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Tabby the Copycat" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About Tabs to Clipboard" id="5kV-Vb-QxS">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Hide Tabs to Clipboard" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide Tabby the Copycat" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -42,21 +35,9 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit Tabs to Clipboard" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit Tabby the Copycat" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="Help" id="wpr-3q-Mcd">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
-                                    <items>
-                                        <menuItem title="Tabs to Clipboard Help" keyEquivalent="?" id="FKE-Sm-Kum">
-                                            <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -68,7 +49,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Tabby" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Tabby_the_Copycat" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Tabby the Copycat-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Tabby" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Tabby the Copycat" id="XfG-lQ-9wD" customClass="ViewController" customModule="Tabby_the_Copycat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="901" height="601"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -117,14 +98,14 @@
                                 <accessibility description="Copy Tabs Toolbar Icon" identifier="Copy Tabs Toolbar Icon"/>
                             </imageView>
                             <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXe-SX-Bmc" userLabel="toolbarText">
-                                <rect key="frame" x="136" y="324" width="200" height="32"/>
+                                <rect key="frame" x="136" y="330" width="181" height="29"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fNh-YX-VJe">
-                                        <rect key="frame" x="-2" y="0.0" width="204" height="32"/>
+                                        <rect key="frame" x="-2" y="0.0" width="185" height="29"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Tap the toolbar to..." placeholderString="Tap the Toolbar" id="vqw-of-Sp3">
-                                            <font key="font" size="28" name="NanumPen"/>
+                                            <font key="font" size="24" name="SFProDisplay-Thin"/>
                                             <color key="textColor" red="0.99519230769230771" green="0.99038461538461542" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <color key="backgroundColor" red="0.90559322887231097" green="0.90877633821514692" blue="0.91832566624365486" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.88255890106777257" green="0.88566104604194618" blue="0.89496748096446699" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </textFieldCell>
                                         <accessibility description="Tap the toolbar" identifier="Tap the toolbar"/>
                                     </textField>
@@ -137,7 +118,7 @@
                                 </customSpacing>
                             </stackView>
                             <imageView identifier="context" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="176" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="xBS-qg-3b0" userLabel="context">
-                                <rect key="frame" x="45" y="126" width="71" height="148"/>
+                                <rect key="frame" x="45" y="132" width="71" height="148"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="71" id="Kvp-XJ-VCR"/>
                                     <constraint firstAttribute="width" secondItem="xBS-qg-3b0" secondAttribute="height" multiplier="71:148" id="OPi-G6-ODt"/>
@@ -146,23 +127,23 @@
                                 <accessibility description="Right Click Menu Screenshot" identifier="Right Click Menu Screenshot"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EB0-ac-UZR" userLabel="command">
-                                <rect key="frame" x="658" y="123" width="86" height="30"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Command" id="S7v-7o-3vW">
-                                    <font key="font" size="26" name="NanumPen"/>
+                                <rect key="frame" x="641" y="138" width="100" height="25"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Command" id="S7v-7o-3vW">
+                                    <font key="font" size="21" name="SFProRounded-Light"/>
                                     <color key="textColor" name="Contrast"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <accessibility description="To start, open Safari Preferences" identifier="To start, open Safari Preferences"/>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ooh-eV-eLQ" userLabel="preferences">
-                                <rect key="frame" x="551" y="63" width="300" height="48"/>
+                                <rect key="frame" x="541" y="78" width="300" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="j5F-DW-gcP"/>
                                     <constraint firstAttribute="height" constant="48" id="jvR-aO-f3J"/>
                                 </constraints>
                                 <buttonCell key="cell" type="bevel" title="Open Preferences..." alternateTitle="Install" bezelStyle="rounded" image="Button" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingMiddle" state="on" imageScaling="proportionallyDown" inset="2" id="Srx-0j-A4D">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="32" name="NanumPen"/>
+                                    <font key="font" size="24" name="SFProRounded-Regular"/>
                                     <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -174,23 +155,23 @@ DQ
                                 </connections>
                             </button>
                             <stackView distribution="equalSpacing" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZeE-tg-uu3" userLabel="rightClickText">
-                                <rect key="frame" x="136" y="215" width="375" height="64"/>
+                                <rect key="frame" x="136" y="227" width="375" height="58"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HbS-P9-wko">
-                                        <rect key="frame" x="-2" y="32" width="156" height="32"/>
+                                        <rect key="frame" x="-2" y="29" width="139" height="29"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Right click to..." placeholderString="Right Click" id="2Ac-Bs-Ksh">
-                                            <font key="font" size="28" name="NanumPen"/>
+                                            <font key="font" size="24" name="SFProDisplay-Thin"/>
                                             <color key="textColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" red="0.83704924071407649" green="0.83300552457536114" blue="0.84109295685279184" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </textFieldCell>
                                         <accessibility description="Right Click To" identifier="Right Click To"/>
                                     </textField>
                                     <textField identifier="features" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="UPD-pS-KvM">
-                                        <rect key="frame" x="-2" y="0.0" width="88" height="32"/>
+                                        <rect key="frame" x="-2" y="0.0" width="87" height="29"/>
                                         <textFieldCell key="cell" selectable="YES" title="Features" id="jRr-ob-xWh">
-                                            <font key="font" size="28" name="NanumPen"/>
+                                            <font key="font" size="24" name="SFProDisplay-Thin"/>
                                             <color key="textColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" red="0.83704924071407649" green="0.83300552457536114" blue="0.84109295685279184" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </textFieldCell>
                                         <accessibility description="Copy certain tabs or close duplicate tabs" identifier="Copy certain tabs or close duplicate tabs"/>
                                     </textField>
@@ -209,9 +190,9 @@ DQ
                                 </customSpacing>
                             </stackView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jwd-0d-7TZ">
-                                <rect key="frame" x="668" y="39" width="67" height="16"/>
+                                <rect key="frame" x="651" y="54" width="81" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Catalina Bug" placeholderString=" " id="SVa-Ar-XzV">
-                                    <font key="font" size="14" name="NanumPen"/>
+                                    <font key="font" size="14" name="SFProDisplay-Light"/>
                                     <color key="textColor" name="Contrast"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -224,23 +205,33 @@ DQ
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageAlignment="topRight" imageScaling="proportionallyUpOrDown" image="InstallWink" id="ihX-h6-RgL"/>
                             </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ajv-1H-VQQ">
+                                <rect key="frame" x="43" y="40" width="108" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Privacy Statement" id="FQT-Pe-DOO">
+                                    <font key="font" size="14" name="SFProDisplay-Light"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="0.85911112602499029" green="0.85496083073018359" blue="0.863261421319797" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="ajv-1H-VQQ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="45" id="I6w-22-9tH"/>
                             <constraint firstItem="ZeE-tg-uu3" firstAttribute="leading" secondItem="xBS-qg-3b0" secondAttribute="trailing" constant="20" id="LR8-Jy-LDU"/>
+                            <constraint firstAttribute="bottom" secondItem="ajv-1H-VQQ" secondAttribute="bottom" constant="40" id="Mim-SQ-AUv"/>
                             <constraint firstItem="Jwd-0d-7TZ" firstAttribute="top" secondItem="ooh-eV-eLQ" secondAttribute="bottom" constant="8" id="P5x-kL-GMO"/>
                             <constraint firstItem="ooh-eV-eLQ" firstAttribute="top" secondItem="EB0-ac-UZR" secondAttribute="bottom" constant="12" id="Ruv-bf-7l0"/>
                             <constraint firstItem="Xf9-4l-hsC" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="221" id="UVe-Uv-qDj"/>
                             <constraint firstItem="bXe-SX-Bmc" firstAttribute="leading" secondItem="Xf9-4l-hsC" secondAttribute="trailing" constant="20" id="Vdd-Ou-q1s"/>
-                            <constraint firstAttribute="trailing" secondItem="ooh-eV-eLQ" secondAttribute="trailing" constant="50" id="ZUo-5r-Sbh"/>
+                            <constraint firstAttribute="trailing" secondItem="ooh-eV-eLQ" secondAttribute="trailing" constant="60" id="ZUo-5r-Sbh"/>
                             <constraint firstItem="ZeE-tg-uu3" firstAttribute="top" secondItem="xBS-qg-3b0" secondAttribute="top" constant="-5" id="a71-fK-m03"/>
-                            <constraint firstItem="bXe-SX-Bmc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="245" id="dqh-3z-UUa"/>
+                            <constraint firstItem="bXe-SX-Bmc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="242" id="dqh-3z-UUa"/>
                             <constraint firstItem="Xf9-4l-hsC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="45" id="gQg-aI-l9H"/>
                             <constraint firstItem="xBS-qg-3b0" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="45" id="k1T-zh-sSz"/>
                             <constraint firstItem="xBS-qg-3b0" firstAttribute="top" secondItem="bXe-SX-Bmc" secondAttribute="bottom" constant="50" id="kBs-zc-Hwn"/>
                             <constraint firstItem="EB0-ac-UZR" firstAttribute="centerX" secondItem="ooh-eV-eLQ" secondAttribute="centerX" id="kff-oG-RGO"/>
                             <constraint firstItem="QYk-zz-Zo1" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="0.5" id="quT-77-0bo"/>
                             <constraint firstItem="Jwd-0d-7TZ" firstAttribute="centerX" secondItem="ooh-eV-eLQ" secondAttribute="centerX" id="x7Y-gF-WHq"/>
-                            <constraint firstAttribute="top" secondItem="ooh-eV-eLQ" secondAttribute="top" constant="-490" id="y8g-An-dY5"/>
+                            <constraint firstAttribute="top" secondItem="ooh-eV-eLQ" secondAttribute="top" constant="-475" id="y8g-An-dY5"/>
                             <constraint firstAttribute="trailing" secondItem="QYk-zz-Zo1" secondAttribute="trailing" constant="1" id="zsx-jq-lQg"/>
                         </constraints>
                     </view>
@@ -248,6 +239,7 @@ DQ
                         <outlet property="buttonCommandLabel" destination="EB0-ac-UZR" id="XtX-Mn-Kuv"/>
                         <outlet property="catalinaBugLabel" destination="Jwd-0d-7TZ" id="Dfp-qH-u5v"/>
                         <outlet property="openSafariExtensionPreferences" destination="ooh-eV-eLQ" id="bbE-MV-Vkh"/>
+                        <outlet property="privacyLabel" destination="ajv-1H-VQQ" id="Iif-D2-3t7"/>
                         <outlet property="rightClickCopyLabel" destination="UPD-pS-KvM" id="jLj-8W-t5n"/>
                         <outlet property="rightClickHeadlineLabel" destination="HbS-P9-wko" id="FtQ-9z-HjW"/>
                         <outlet property="toolbarTapHeadlineLabel" destination="fNh-YX-VJe" id="CtL-4U-qVa"/>

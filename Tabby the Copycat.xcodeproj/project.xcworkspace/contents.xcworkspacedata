@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Tabby.xcodeproj">
+      location = "self:/Users/ryan/Developer/Tabby/Tabby the Copycat.xcodeproj">
    </FileRef>
 </Workspace>

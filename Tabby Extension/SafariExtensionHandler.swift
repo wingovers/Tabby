@@ -1,6 +1,6 @@
 //
-//  AppDelegate.swift
-//  Tabby
+//  SafariExtensionHandler.swift
+//  Tabby the Copycat
 //
 //  Created by Ryan on 5/28/20.
 //  Copyright © 2020 Ryan Ferrell. All rights reserved.
@@ -10,10 +10,10 @@ import SafariServices
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
-    // Button taps and context menu actions add to unique instances of this string array
+    // Button taps and context menu actions append to unique instances of this string array
     var HREFS = [String]()
     
-    // Unwraps a tab's URL and title, converts UTF8 encoding to encoding used by HTML, and wraps those data into a line of HTML code
+    // Unwraps a tab's URL and title, converts UTF8 encoding to encoding used by HTML, and wraps those strings into a line of HTML code
     func getLink(props: SFSafariPageProperties?, completion: @escaping (String) -> Void) {
         var unwrappedTitle = String()
         var unwrappedAddress = String()
@@ -47,7 +47,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         }
     }
     
-    // Copies HTML hyperlinks in the current instance of the HREFS array and triggers the toolbar icon badge update
+    // Copies HTML hyperlinks in the current instance of the HREFS array and triggers the badge function
     func copyToClipboard(fromWindow window: SFSafariWindow) {
         setBadge(ofWindow: window, contents: String("\(self.HREFS.count)"))
         NSPasteboard.general.clearContents()
@@ -55,7 +55,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         NSPasteboard.general.setString(toTheseLinks, forType: .html)
     }
     
-    // Not the prettiest code for pulling out properties for each Safari tab and triggering link creation, appending to the HREFS array, and clipboard copying/badge flashes
+    // Pulls out properties for each Safari tab and then starts link creation, appends results to the HREFS array, and adds to pasteboard
     override func toolbarItemClicked(in window: SFSafariWindow) {
         window.getAllTabs { tabs in
             for tab in tabs {
@@ -75,7 +75,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         }
     } // override
     
-    // Right clicking a webpage offers options to copy the current page's link, copy tabs to the right, copy tabs to the left, copy unique tabs, and close any duplicate tabs
+    // Right clicking a webpage offers options to copy the current page's link, copy tabs to the right, copy tabs to the left, and close any duplicate tabs
     override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
         switch command {
         case "copyTab":
@@ -146,32 +146,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                     })
                 }
             }
-            
-//        // Copy non-duplicate tabs, retaining just the leftmost instance
-//        case "copyUniques":
-//            page.getContainingTab { (tab) in
-//                tab.getContainingWindow { (window) in
-//                    window?.getAllTabs { (tabs) in
-//                        tabs.forEach { tab in
-//                            tab.getActivePage { (page) in
-//                                page!.getPropertiesWithCompletionHandler { (properties) in
-//                                    if properties?.isActive == true {
-//                                        self.getLink(props: properties) { link in
-//                                            if self.HREFS.contains(link) == false {
-//                                                self.HREFS.append(link)
-//                                            }
-//                                            self.copyToClipboard(fromWindow: window!)
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                        }
-//
-//                    }
-//                }
-//            }
         
-        // Close tabs producing duplicate links
+        // Close tabs containing duplicate links
         case "closeDupes":
             page.getContainingTab { (tab) in
                 tab.getContainingWindow { (window) in

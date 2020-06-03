@@ -1,6 +1,6 @@
 //
-//  AppDelegate.swift
-//  Tabby
+//  ViewController.swift
+//  Tabby the Copycat
 //
 //  Created by Ryan on 5/28/20.
 //  Copyright © 2020 Ryan Ferrell. All rights reserved.
@@ -18,6 +18,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var openSafariExtensionPreferences: NSButton!
     @IBOutlet weak var catalinaBugLabel: NSTextField!
     @IBOutlet weak var winkBGImage: NSImageView!
+    @IBOutlet weak var privacyLabel: NSTextField!
     
     override func viewWillAppear() {
         super.viewWillAppear()
@@ -33,14 +34,15 @@ class ViewController: NSViewController {
     }
     
     // Strings
-    let buttonCommandLabelBase = "To install, enable Tabby\u{2028} in Safari Preferences."
+    let buttonCommandLabelBase = "Enable Tabby by checking\u{2028}its box in Safari Preferences."
     let buttonCommandLabelInstalled = "Your Tabby is now installed!"
     let rightClickHeadlineLabelBase = "Right click to close duplicate tabs"
-    let rightClickCopyLabelBase:String = "or copy links for\u{2028}  – that page\u{2028}  – tabs to the right or left"
+    let rightClickCopyLabelBase:String = "and copy links for just that page or\u{2028}the tabs to the right or left"
     let toolbarTapHeadlineLabelBase = "Tap the toolbar cat\u{2028}to copy links for all tabs"
     let openSafariButtonBase = "Open Safari Preferences"
-    let catalinaWarning = "If the install checkbox is unresponsive, try wiggling the window.\nThis sporadic bug affected all extensions starting March 2020."
+    let catalinaWarning = "If the install checkbox is unresponsive, try wiggling \nthe window. This sporadic bug appeared in MacOS 10.15.3."
     let catalinaPlaceholder = ""
+    let privacyStatment = "Privacy: Tabby collects no data from you, period.\u{2028}Verify the source code yourself at github.com/wingovers/Tabby"
 
     
     override func viewDidLoad() {
@@ -48,7 +50,7 @@ class ViewController: NSViewController {
         // Start timer for install state label (buttonCommandLabel)
         timerForInstallChecks()
         
-        // Check MacOS version and set install bug help tip for those affected
+        // Check MacOS version, set install bug help tip for those affected
         showCatalinaBug()
         
         super.viewDidLoad()
@@ -59,6 +61,7 @@ class ViewController: NSViewController {
         self.rightClickCopyLabel.stringValue = rightClickCopyLabelBase
         self.buttonCommandLabel.stringValue = buttonCommandLabelBase
         self.openSafariExtensionPreferences.title = openSafariButtonBase
+        self.privacyLabel.stringValue = privacyStatment
         
         // Winking Tabby cat in upper right corner
         winkBGImage.isHidden = true
@@ -76,15 +79,14 @@ class ViewController: NSViewController {
         }
     }
     
-    // Checks for MacOS version 10.15.3 where a sporadic bug appeared that makes the install checkbox unresponsive. One workaround is shaking the preferences pane to restore responsiveness. Jeff Johnson documented the bug: https://lapcatsoftware.com/articles/enable-extensions.html
+    // Checks for MacOS version 10.15.3+ A sporadic bug was introduced that can make the install checkbox unresponsive. One workaround is shaking the preferences pane to restore responsiveness. Jeff Johnson documented the bug: https://lapcatsoftware.com/articles/enable-extensions.html
     func showCatalinaBug() {
         let os = ProcessInfo().operatingSystemVersion
-        print(os)
         guard os.majorVersion > 9, os.minorVersion > 14, os.patchVersion > 2 else { return }
         self.catalinaBugLabel.stringValue = self.catalinaWarning
     }
     
-    // Fires about every second to show confirmation of intall state
+    // Fires about every second to display confirmation of intall state
     func timerForInstallChecks() {
         let timer = Timer(timeInterval: 1, repeats: true) { timer in
             self.getInstallState()

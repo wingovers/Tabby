@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Tabby
+//  Tabby the Copycat
 //
 //  Created by Ryan on 5/28/20.
 //  Copyright © 2020 Ryan Ferrell. All rights reserved.

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		94413AA624806F9800329A04 /* Tabby.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 94413AA524806F9800329A04 /* Tabby.entitlements */; };
 		94413AA824806F9800329A04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413AA724806F9800329A04 /* AppDelegate.swift */; };
-		94413AB624806F9C00329A04 /* Tabby Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 94413AB524806F9C00329A04 /* Tabby Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		94413AB624806F9C00329A04 /* Tabby the Copycat Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 94413AB524806F9C00329A04 /* Tabby the Copycat Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		94413ABB24806F9C00329A04 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94413ABA24806F9C00329A04 /* Cocoa.framework */; };
 		94413AD424807C7C00329A04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94413AD324807C7C00329A04 /* Main.storyboard */; };
 		94413AD624807C9700329A04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94413AD524807C9700329A04 /* Assets.xcassets */; };
@@ -36,7 +36,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				94413AB624806F9C00329A04 /* Tabby Extension.appex in Embed App Extensions */,
+				94413AB624806F9C00329A04 /* Tabby the Copycat Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,11 +44,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		94413AA224806F9800329A04 /* Tabby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tabby.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		94413AA224806F9800329A04 /* Tabby the Copycat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tabby the Copycat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94413AA524806F9800329A04 /* Tabby.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tabby.entitlements; sourceTree = "<group>"; };
 		94413AA724806F9800329A04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94413AB024806F9B00329A04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		94413AB524806F9C00329A04 /* Tabby Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Tabby Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94413AB524806F9C00329A04 /* Tabby the Copycat Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Tabby the Copycat Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94413ABA24806F9C00329A04 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		94413AC424806F9C00329A04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94413AC924806F9C00329A04 /* Tabby_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tabby_Extension.entitlements; sourceTree = "<group>"; };
@@ -92,8 +92,8 @@
 		94413AA324806F9800329A04 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				94413AA224806F9800329A04 /* Tabby.app */,
-				94413AB524806F9C00329A04 /* Tabby Extension.appex */,
+				94413AA224806F9800329A04 /* Tabby the Copycat.app */,
+				94413AB524806F9C00329A04 /* Tabby the Copycat Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,9 +134,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		94413AA124806F9800329A04 /* Tabby */ = {
+		94413AA124806F9800329A04 /* Tabby the Copycat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 94413AD024806F9C00329A04 /* Build configuration list for PBXNativeTarget "Tabby" */;
+			buildConfigurationList = 94413AD024806F9C00329A04 /* Build configuration list for PBXNativeTarget "Tabby the Copycat" */;
 			buildPhases = (
 				94413A9E24806F9800329A04 /* Sources */,
 				94413A9F24806F9800329A04 /* Frameworks */,
@@ -148,14 +148,14 @@
 			dependencies = (
 				94413AB824806F9C00329A04 /* PBXTargetDependency */,
 			);
-			name = Tabby;
+			name = "Tabby the Copycat";
 			productName = Tabby;
-			productReference = 94413AA224806F9800329A04 /* Tabby.app */;
+			productReference = 94413AA224806F9800329A04 /* Tabby the Copycat.app */;
 			productType = "com.apple.product-type.application";
 		};
-		94413AB424806F9C00329A04 /* Tabby Extension */ = {
+		94413AB424806F9C00329A04 /* Tabby the Copycat Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 94413ACC24806F9C00329A04 /* Build configuration list for PBXNativeTarget "Tabby Extension" */;
+			buildConfigurationList = 94413ACC24806F9C00329A04 /* Build configuration list for PBXNativeTarget "Tabby the Copycat Extension" */;
 			buildPhases = (
 				94413AB124806F9C00329A04 /* Sources */,
 				94413AB224806F9C00329A04 /* Frameworks */,
@@ -165,9 +165,9 @@
 			);
 			dependencies = (
 			);
-			name = "Tabby Extension";
+			name = "Tabby the Copycat Extension";
 			productName = "Tabby Extension";
-			productReference = 94413AB524806F9C00329A04 /* Tabby Extension.appex */;
+			productReference = 94413AB524806F9C00329A04 /* Tabby the Copycat Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -188,7 +188,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 94413A9D24806F9800329A04 /* Build configuration list for PBXProject "Tabby" */;
+			buildConfigurationList = 94413A9D24806F9800329A04 /* Build configuration list for PBXProject "Tabby the Copycat" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -201,8 +201,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				94413AA124806F9800329A04 /* Tabby */,
-				94413AB424806F9C00329A04 /* Tabby Extension */,
+				94413AA124806F9800329A04 /* Tabby the Copycat */,
+				94413AB424806F9C00329A04 /* Tabby the Copycat Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -252,7 +252,7 @@
 /* Begin PBXTargetDependency section */
 		94413AB824806F9C00329A04 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 94413AB424806F9C00329A04 /* Tabby Extension */;
+			target = 94413AB424806F9C00329A04 /* Tabby the Copycat Extension */;
 			targetProxy = 94413AB724806F9C00329A04 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -458,7 +458,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		94413A9D24806F9800329A04 /* Build configuration list for PBXProject "Tabby" */ = {
+		94413A9D24806F9800329A04 /* Build configuration list for PBXProject "Tabby the Copycat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				94413ACA24806F9C00329A04 /* Debug */,
@@ -467,7 +467,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		94413ACC24806F9C00329A04 /* Build configuration list for PBXNativeTarget "Tabby Extension" */ = {
+		94413ACC24806F9C00329A04 /* Build configuration list for PBXNativeTarget "Tabby the Copycat Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				94413ACD24806F9C00329A04 /* Debug */,
@@ -476,7 +476,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		94413AD024806F9C00329A04 /* Build configuration list for PBXNativeTarget "Tabby" */ = {
+		94413AD024806F9C00329A04 /* Build configuration list for PBXNativeTarget "Tabby the Copycat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				94413AD124806F9C00329A04 /* Debug */,
