@@ -73,7 +73,7 @@ class ViewController: NSViewController {
     
     // Link to Safari Preferences
     @IBAction func openSafariExtensionPreferences(_ sender: AnyObject?) {
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: "wingover.Tabby-Extension") { error in
+        SFSafariApplication.showPreferencesForExtension(withIdentifier: "wingover.Tabby.Extension") { error in
             if let err = error {
                 NSLog("Error \(String(describing: err))") }
         }
@@ -97,7 +97,7 @@ class ViewController: NSViewController {
     
     // Checks whether this extension is installed, setting a label in response, and hiding the Catalina bug tip if installation is successful
     func getInstallState() {
-        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: "wingover.Tabby-Extension") { (state, error) in
+        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: "wingover.Tabby.Extension") { (state, error) in
             DispatchQueue.main.async {
                 guard state?.isEnabled ?? true else {
                     self.buttonCommandLabel.stringValue = self.buttonCommandLabelBase
