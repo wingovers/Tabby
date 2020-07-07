@@ -14,7 +14,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     var htmlLinks = [String]()
     var plainLinks = [String]()
 
-    // MARK: - Intents
+    // MARK: - Intents / Logic Mixed
     
     // Pulls out properties for each Safari tab and then starts link creation, appends results to the HREFS array, and adds to pasteboard
     override func toolbarItemClicked(in window: SFSafariWindow) {
@@ -157,7 +157,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         if CFStringTransform(cfString, nil, kCFStringTransformToXMLHex, false) {}
         let encoded = String(describing: cfString)
         let htmlString = String("""
-            <li><a href="\(unwrappedAddress)">\(encoded)</a></li>
+            <p><a href="\(unwrappedAddress)">\(encoded)</a></p>
             """)
 
         // FOR PLAIN TEXT: Remove http:// and https://
@@ -198,24 +198,14 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     func copyToClipboard(fromWindow window: SFSafariWindow) {
         setBadge(ofWindow: window, contents: String("\(self.htmlLinks.count)"))
         NSPasteboard.general.clearContents()
-        let toTheseLinks = self.htmlLinks.joined(separator: "\n")
-        var toThesePlainLinks = self.plainLinks.joined(separator: "\n\n")
-        toThesePlainLinks.append("\n")
+        let joinedHtmlLinks = self.htmlLinks.joined(separator: "\n")
+        var joinedPlainLinks = self.plainLinks.joined(separator: "\n\n")
+        joinedPlainLinks.append("\n")
 
-        let allTogetherNow = NSPasteboardItem()
-        allTogetherNow.setString(toTheseLinks, forType: .html)
-        allTogetherNow.setString(toThesePlainLinks, forType: .string)
+        let plainAndHtmlLinksTogether = NSPasteboardItem()
+        plainAndHtmlLinksTogether.setString(joinedHtmlLinks, forType: .html)
+        plainAndHtmlLinksTogether.setString(joinedPlainLinks, forType: .string)
 
-        NSPasteboard.general.writeObjects([allTogetherNow])
-
-//        let htmlObject = NSPasteboardItem()
-//        htmlObject.setString(toTheseLinks, forType: .html)
-//
-//        let plainObject = NSPasteboardItem()
-//        plainObject.setString(toThesePlainLinks, forType: .string)
-//
-//        let pasteArray: [NSPasteboardItem] = [htmlObject, plainObject]
-//
-//        NSPasteboard.general.writeObjects(pasteArray)
+        NSPasteboard.general.writeObjects([plainAndHtmlLinksTogether])
     }
 }
