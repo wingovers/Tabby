@@ -45,9 +45,10 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             page.getPropertiesWithCompletionHandler { props in
                 if props?.isActive == true {
                     self.getLink(props: props) { (html, plain) in
+                        let plainExtraLine = String(plain + "\n")
                         NSPasteboard.general.clearContents()
                         NSPasteboard.general.setString(html, forType: .html)
-                        NSPasteboard.general.setString(plain, forType: .string)
+                        NSPasteboard.general.setString(plainExtraLine, forType: .string)
                     }
                 }
             }
@@ -157,7 +158,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         if CFStringTransform(cfString, nil, kCFStringTransformToXMLHex, false) {}
         let encoded = String(describing: cfString)
         let htmlString = String("""
-            <li><a href="\(unwrappedAddress)">\(encoded)</a></li>
+            <a href="\(unwrappedAddress)">\(encoded)</a>
             """)
 
         // FOR PLAIN TEXT: Remove http:// and https://
@@ -199,7 +200,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         setBadge(ofWindow: window, contents: String("\(self.htmlLinks.count)"))
         NSPasteboard.general.clearContents()
         let toTheseLinks = self.htmlLinks.joined(separator: "\n")
-        let toThesePlainLinks = self.plainLinks.joined(separator: "\n\n")
+        var toThesePlainLinks = self.plainLinks.joined(separator: "\n\n")
+        toThesePlainLinks.append("\n")
 
         let htmlObject = NSPasteboardItem()
         htmlObject.setString(toTheseLinks, forType: .html)
@@ -207,9 +209,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         let plainObject = NSPasteboardItem()
         plainObject.setString(toThesePlainLinks, forType: .string)
 
-        var pasteArray = [NSPasteboardItem]()
-        pasteArray.append(htmlObject)
-        pasteArray.append(plainObject)
+        let pasteArray: [NSPasteboardItem] = [htmlObject, plainObject]
 
         NSPasteboard.general.writeObjects(pasteArray)
     }
