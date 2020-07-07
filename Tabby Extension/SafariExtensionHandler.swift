@@ -11,8 +11,8 @@ import SafariServices
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
     // Button taps and context menu actions append to unique instances of this string array
-    var HREFS = [String]()
-    var plainText = [String]()
+    var htmlLinks = [String]()
+    var plainLinks = [String]()
 
     // MARK: - Intents
     
@@ -25,8 +25,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                         SFSafariPage.getPropertiesWithCompletionHandler { props in
                             if props?.isActive == true {
                                 self.getLink(props: props) { (html, plain) in
-                                    self.HREFS.append(html)
-                                    self.plainText.append(plain)
+                                    self.htmlLinks.append(html)
+                                    self.plainLinks.append(plain)
                                     self.copyToClipboard(fromWindow: window)
                                 }
                             }
@@ -72,8 +72,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                                 page!.getPropertiesWithCompletionHandler { props in
                                     if props?.isActive == true {
                                         self.getLink(props: props) { (html, plain) in
-                                            self.HREFS.append(html)
-                                            self.plainText.append(plain)
+                                            self.htmlLinks.append(html)
+                                            self.plainLinks.append(plain)
                                             self.copyToClipboard(fromWindow: window!)
                                         }
                                     }
@@ -99,8 +99,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                                 page!.getPropertiesWithCompletionHandler { props in
                                     if props?.isActive == true {
                                         self.getLink(props: props) { (html, plain) in
-                                            self.HREFS.append(html)
-                                            self.plainText.append(plain)
+                                            self.htmlLinks.append(html)
+                                            self.plainLinks.append(plain)
                                             self.copyToClipboard(fromWindow: window!)
                                         }
                                         
@@ -122,8 +122,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                                 page!.getPropertiesWithCompletionHandler { (properties) in
                                     if properties?.isActive == true {
                                         self.getLink(props: properties) { (link, _) in
-                                            if self.HREFS.contains(link) == false {
-                                                self.HREFS.append(link)
+                                            if self.htmlLinks.contains(link) == false {
+                                                self.htmlLinks.append(link)
                                             } else {
                                                 tab.close()
                                             }
@@ -196,10 +196,21 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
 
     // Copies HTML hyperlinks in the current instance of the HREFS array and triggers the badge function
     func copyToClipboard(fromWindow window: SFSafariWindow) {
-        setBadge(ofWindow: window, contents: String("\(self.HREFS.count)"))
+        setBadge(ofWindow: window, contents: String("\(self.htmlLinks.count)"))
         NSPasteboard.general.clearContents()
-        let toTheseLinks = self.HREFS.joined(separator: "\n")
-        NSPasteboard.general.setString(toTheseLinks, forType: .html)
-        NSPasteboard.general.setString(toTheseLinks, forType: .string)
+        let toTheseLinks = self.htmlLinks.joined(separator: "\n")
+        let toThesePlainLinks = self.plainLinks.joined(separator: "\n\n")
+
+        let htmlObject = NSPasteboardItem()
+        htmlObject.setString(toTheseLinks, forType: .html)
+
+        let plainObject = NSPasteboardItem()
+        plainObject.setString(toThesePlainLinks, forType: .string)
+
+        var pasteArray = [NSPasteboardItem]()
+        pasteArray.append(htmlObject)
+        pasteArray.append(plainObject)
+
+        NSPasteboard.general.writeObjects(pasteArray)
     }
 }
