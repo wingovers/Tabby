@@ -9,8 +9,7 @@
 import SafariServices
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
-    
-    // Button taps and context menu actions append to unique instances of this string array
+
     var htmlLinks = [String]()
     var plainLinks = [String]()
 
@@ -18,20 +17,25 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     
     // Pulls out properties for each Safari tab and then starts link creation, appends results to the HREFS array, and adds to pasteboard
     override func toolbarItemClicked(in window: SFSafariWindow) {
+        htmlLinks = [String]()
+        plainLinks = [String]()
+
         window.getAllTabs { tabs in
-            for tab in tabs {
+            tabs.enumerated().forEach { (tabIndex, tab) in
                 tab.getPagesWithCompletionHandler { pages in
-                    pages?.forEach({ SFSafariPage in
+                    pages?.forEach { SFSafariPage in
                         SFSafariPage.getPropertiesWithCompletionHandler { props in
-                            if props?.isActive == true {
-                                self.getLink(props: props) { (html, plain) in
-                                    self.htmlLinks.append(html)
-                                    self.plainLinks.append(plain)
-                                    self.copyToClipboard(fromWindow: window)
+                            guard let _props = props,
+                                  _props.isActive else { return }
+                            self.getLink(props: _props) { [weak self] (html, plain) in
+                                self?.htmlLinks.append(html)
+                                self?.plainLinks.append(plain)
+                                if tabIndex == (tabs.count - 1) {
+                                    self?.copyToClipboard(fromWindow: window)
                                 }
                             }
                         }
-                    })
+                    }
                 }
             }
         }
@@ -39,16 +43,19 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     
     // Right clicking a webpage offers options to copy the current page's link, copy tabs to the right, copy tabs to the left, and close any duplicate tabs
     override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
+        htmlLinks = [String]()
+        plainLinks = [String]()
+
         switch command {
         case "copyTab":
             // Copy the current page's link
             page.getPropertiesWithCompletionHandler { props in
-                if props?.isActive == true {
-                    self.getLink(props: props) { (html, plain) in
-                        NSPasteboard.general.clearContents()
-                        NSPasteboard.general.setString(html, forType: .html)
-                        NSPasteboard.general.setString(plain, forType: .string)
-                    }
+                guard let _props = props,
+                      _props.isActive else { return }
+                self.getLink(props: _props) { (html, plain) in
+                    NSPasteboard.general.clearContents()
+                    NSPasteboard.general.setString(html, forType: .html)
+                    NSPasteboard.general.setString(plain, forType: .string)
                 }
             }
             
@@ -63,25 +70,27 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             page.getContainingTab { tab in
                 let currentTab = tab
                 tab.getContainingWindow { window in
-                    window?.getAllTabs(completionHandler: { tabs in
-                        let position = tabs.firstIndex(of: currentTab)
-                        let rightTabs = tabs[position!...]
+                    guard let _window = window else { return }
+                    _window.getAllTabs { tabs in
+                        guard let position = tabs.firstIndex(of: currentTab) else { return }
+                        let rightTabs = tabs[position...]
                         
-                        rightTabs.forEach { tab in
+                        rightTabs.enumerated().forEach { (rightTabIndex, tab) in
                             tab.getActivePage { page in
-                                page!.getPropertiesWithCompletionHandler { props in
-                                    if props?.isActive == true {
-                                        self.getLink(props: props) { (html, plain) in
-                                            self.htmlLinks.append(html)
-                                            self.plainLinks.append(plain)
-                                            self.copyToClipboard(fromWindow: window!)
+                                page?.getPropertiesWithCompletionHandler { props in
+                                    guard let _props = props,
+                                          _props.isActive else { return }
+                                    self.getLink(props: _props) { [weak self] (html, plain) in
+                                        self?.htmlLinks.append(html)
+                                        self?.plainLinks.append(plain)
+                                        if rightTabIndex == (rightTabs.count - 1) {
+                                            self?.copyToClipboard(fromWindow: _window)
                                         }
                                     }
                                 }
                             }
                         }
-                        
-                    })
+                    }
                 }
             }
             
@@ -90,96 +99,93 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             page.getContainingTab { tab in
                 let currentTab = tab
                 tab.getContainingWindow { window in
-                    window?.getAllTabs(completionHandler: { tabs in
-                        let position = tabs.firstIndex(of: currentTab)
-                        let leftTabs = tabs[...position!]
+                    guard let _window = window else { return }
+                    _window.getAllTabs { tabs in
+                        guard let position = tabs.firstIndex(of: currentTab) else { return }
+                        let leftTabs = tabs[...position]
                         
-                        leftTabs.forEach { tab in
+                        leftTabs.enumerated().forEach { (leftTabIndex, tab) in
                             tab.getActivePage { page in
-                                page!.getPropertiesWithCompletionHandler { props in
-                                    if props?.isActive == true {
-                                        self.getLink(props: props) { (html, plain) in
-                                            self.htmlLinks.append(html)
-                                            self.plainLinks.append(plain)
-                                            self.copyToClipboard(fromWindow: window!)
-                                        }
-                                        
-                                    }
-                                }
-                            }
-                        }
-                    })
-                }
-            }
-        
-        // Close tabs containing duplicate links
-        case "closeDupes":
-            page.getContainingTab { (tab) in
-                tab.getContainingWindow { (window) in
-                    window?.getAllTabs { (tabs) in
-                        tabs.forEach { tab in
-                            tab.getActivePage { (page) in
-                                page!.getPropertiesWithCompletionHandler { (properties) in
-                                    if properties?.isActive == true {
-                                        self.getLink(props: properties) { (link, _) in
-                                            if self.htmlLinks.contains(link) == false {
-                                                self.htmlLinks.append(link)
-                                            } else {
-                                                tab.close()
-                                            }
+                                page?.getPropertiesWithCompletionHandler { props in
+                                    guard let _props = props,
+                                          _props.isActive else { return }
+                                    self.getLink(props: _props) { [weak self] (html, plain) in
+                                        self?.htmlLinks.append(html)
+                                        self?.plainLinks.append(plain)
+                                        if leftTabIndex == (leftTabs.count - 1) {
+                                            self?.copyToClipboard(fromWindow: _window)
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                    
                 }
             }
-            
-            
+
+        // Close tabs containing duplicate links
+        case "closeDupes":
+            page.getContainingTab { (tab) in
+                tab.getContainingWindow { window in
+                    window?.getAllTabs { tabs in
+                        tabs.forEach { tab in
+                            tab.getActivePage { page in
+                                page?.getPropertiesWithCompletionHandler { props in
+                                    guard let _props = props,
+                                          _props.isActive else { return }
+                                    self.getLink(props: _props) { [weak self] (link, _) in
+                                        if self?.htmlLinks.contains(link) == false {
+                                            self?.htmlLinks.append(link)
+                                        } else {
+                                            tab.close()
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
         default:
-            NSLog("How did you get default?")
+            NSLog("Default")
         }
     }
 
     // MARK: - Functions
 
-    // Unwraps a tab's URL and title, converts UTF8 encoding to encoding used by HTML, and wraps those strings into a line of HTML code
-    func getLink(props: SFSafariPageProperties?, completion: @escaping (String, String) -> Void) {
-        var unwrappedTitle = String()
-        var unwrappedAddress = String()
-        unwrappedTitle = props?.title ?? "Untitled"
-        unwrappedAddress = props?.url?.absoluteString ?? "http:\\www.google.com"
+    // Two formats supports pasting into certain PlainText/Markdown editors and rich text programs
+    func getLink(props: SFSafariPageProperties, completion: @escaping (String, String) -> Void) {
+        let title = props.title ?? "Untitled"
+        let address = props.url?.absoluteString ?? "http:\\www.google.com"
 
         // FOR HTML: Convert any UTF8 characters in the title to HTML-ready encoding
-        let cfString = (unwrappedTitle as NSString).mutableCopy() as! CFMutableString
+        let cfString = (title as NSString).mutableCopy() as! CFMutableString
         if CFStringTransform(cfString, nil, kCFStringTransformToXMLHex, false) {}
         let encoded = String(describing: cfString)
         let htmlString = String("""
-            <p><a href="\(unwrappedAddress)">\(encoded)</a></p>
+            <p><a href="\(address)">\(encoded)</a></p>
             """)
 
         // FOR PLAIN TEXT: Remove http:// and https://
         var friendlyAddress = String()
-        if unwrappedAddress.hasPrefix("http://") {
-            friendlyAddress = String(unwrappedAddress.dropFirst(7))
+        if address.hasPrefix("http://") {
+            friendlyAddress = String(address.dropFirst(7))
         }
-        if unwrappedAddress.hasPrefix("https://") {
-            friendlyAddress = String(unwrappedAddress.dropFirst(8))
+        if address.hasPrefix("https://") {
+            friendlyAddress = String(address.dropFirst(8))
         }
         let plainString = String("""
-            \(unwrappedTitle)
+            \(title)
             \(friendlyAddress)
             """)
 
-            completion(htmlString, plainString)
+        completion(htmlString, plainString)
     }
 
-
-    // Flashes a badge on the toolbar icon for the number of tabs copied — and makes Tabby the cat wink
+    // Adds numerical badge for tabs copied + makes Tabby the cat wink by switching the default and copied icons
     func setBadge(ofWindow window: SFSafariWindow, contents: String) {
-        window.getToolbarItem { (toolbar) in
+        window.getToolbarItem { toolbar in
             let image = NSImage(named: "ToolbarItemIconCopied.pdf")
             toolbar?.setImage(image)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
