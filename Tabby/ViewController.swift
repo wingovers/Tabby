@@ -37,10 +37,10 @@ class ViewController: NSViewController {
     let buttonCommandLabelBase = "Enable Tabby by checking\u{2028}its box in Safari Preferences."
     let buttonCommandLabelInstalled = "Your Tabby is now installed!"
     let rightClickHeadlineLabelBase = "Right click to close duplicate tabs"
-    let rightClickCopyLabelBase:String = "and copy links for just that page or\u{2028}the tabs to the right or left"
+    let rightClickCopyLabelBase = "or copy links to one side or from all windows"
     let toolbarTapHeadlineLabelBase = "Tap the toolbar cat\u{2028}to copy links for all tabs"
     let openSafariButtonBase = "Open Safari Preferences"
-    let catalinaWarning = "If the install checkbox is unresponsive, try wiggling \nthe window. This sporadic bug appeared in MacOS 10.15.3."
+    let catalinaWarning = "If installing fails, try wiggling \nthe window. Catalina has a sporadic bug for all extensions."
     let catalinaPlaceholder = ""
     let privacyStatment = "Privacy: Tabby collects no data from you, period.\u{2028}Verify the source code yourself at github.com/wingovers/Tabby"
 
