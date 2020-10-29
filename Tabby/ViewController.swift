@@ -12,14 +12,22 @@ import SafariServices.SFSafariExtensionManager
 
 class ViewController: NSViewController {
 
-    @IBOutlet weak var rightClickHeadlineLabel: NSTextField!
-    @IBOutlet weak var rightClickCopyLabel: NSTextField!
-    @IBOutlet weak var toolbarTapHeadlineLabel: NSTextField!
-    @IBOutlet weak var buttonCommandLabel: NSTextField!
-    @IBOutlet weak var openSafariExtensionPreferences: NSButton!
-    @IBOutlet weak var catalinaBugLabel: NSTextField!
     @IBOutlet weak var winkBGImage: NSImageView!
+    @IBOutlet weak var toolbarTapHeadlineLabel: NSTextField!
+    @IBOutlet weak var toolbarTapResultLabel: NSTextField!
+    @IBOutlet weak var rightClickHeadlineLabel: NSTextField!
+    @IBOutlet weak var rightClickBullet1Label: NSTextField!
+    @IBOutlet weak var rightClickBullet2Label: NSTextField!
+    @IBOutlet weak var rightClickBullet3Label: NSTextField!
+    @IBOutlet weak var enableTabbyInstructionsLabel: NSTextField!
+    @IBOutlet weak var openSafariExtensionPreferences: NSButton!
+    @IBOutlet weak var catalinaBugTitleLabel: NSTextField!
+    @IBOutlet weak var catalinaBugWorkaroundLabel: NSTextField!
+    @IBOutlet weak var catalinaBugButton: NSButton!
     @IBOutlet weak var privacyLabel: NSTextField!
+    @IBOutlet weak var privacyLink: NSButton!
+
+    
     
     override func viewWillAppear() {
         super.viewWillAppear()
@@ -39,6 +47,24 @@ class ViewController: NSViewController {
                 NSLog("Error \(String(describing: err))") }
         }
     }
+
+    @IBAction func openGithubRepo(_ sender: AnyObject?) {
+        guard let github = URL(string: "https://www.github.com/wingovers/Tabby") else { return }
+        NSWorkspace.shared.open([github],
+                                withAppBundleIdentifier: "com.apple.safari",
+                                options: [],
+                                additionalEventParamDescriptor: nil,
+                                launchIdentifiers: nil)
+    }
+
+    @IBAction func openBugLink(_ sender: AnyObject?) {
+        guard let mjtsai = URL(string: "https://mjtsai.com/blog/2020/06/03/unable-to-enable-safari-extensions/") else { return }
+        NSWorkspace.shared.open([mjtsai],
+                                withAppBundleIdentifier: "com.apple.safari",
+                                options: [],
+                                additionalEventParamDescriptor: nil,
+                                launchIdentifiers: nil)
+    }
 }
 
 private extension ViewController {
@@ -52,20 +78,35 @@ private extension ViewController {
     }
 
     func populateTextFields() {
-        toolbarTapHeadlineLabel.stringValue = Strings.toolbarTapHeadlineLabelBase.english
-        rightClickHeadlineLabel.stringValue = Strings.rightClickHeadlineLabelBase.english
-        rightClickCopyLabel.stringValue = Strings.rightClickCopyLabelBase.english
-        buttonCommandLabel.stringValue = Strings.buttonCommandLabelBase.english
-        openSafariExtensionPreferences.title = Strings.openSafariButtonBase.english
+        toolbarTapHeadlineLabel.stringValue = Strings.toolbarTapHeadline.english
+        toolbarTapResultLabel.stringValue = bulleted(Strings.toolbarTapResult.english)
+        rightClickHeadlineLabel.stringValue = Strings.rightClickHeadline.english
+        rightClickBullet1Label.stringValue = bulleted(Strings.rightClickBullet1.english)
+        rightClickBullet2Label.stringValue = bulleted(Strings.rightClickBullet2.english)
+        rightClickBullet3Label.stringValue = bulleted(Strings.rightClickBullet3.english)
+        enableTabbyInstructionsLabel.stringValue = Strings.enableTabbyInstructions.english
+        openSafariExtensionPreferences.title = Strings.openSafariPreferences.english
         privacyLabel.stringValue = Strings.privacyStatment.english
-        displayWarningForCatalinaBug()
+        privacyLink.title = Strings.privacyLinkInvitation.english
+
+        populateWarningForCatalinaBug(for: currentOS())
+    }
+
+    func currentOS() -> OperatingSystemVersion {
+        ProcessInfo().operatingSystemVersion
     }
 
     // Checks for MacOS version 10.15.3+ A sporadic bug was introduced that can make the install checkbox unresponsive. One workaround is shaking the preferences pane to restore responsiveness. Jeff Johnson documented the bug: https://lapcatsoftware.com/articles/enable-extensions.html
-    func displayWarningForCatalinaBug() {
-        let os = ProcessInfo().operatingSystemVersion
-        guard os.majorVersion > 9, os.minorVersion > 14, os.patchVersion > 2 else { return }
-        catalinaBugLabel.stringValue = Strings.catalinaWarning.english
+    func populateWarningForCatalinaBug(for os: OperatingSystemVersion) {
+        DispatchQueue.main.async { [self] in
+            catalinaBugTitleLabel.stringValue = Strings.blank.english
+            catalinaBugWorkaroundLabel.stringValue = Strings.blank.english
+            catalinaBugButton.title = Strings.blank.english
+            guard os.majorVersion == 10, os.minorVersion > 14, os.patchVersion > 2 else { return }
+            catalinaBugTitleLabel.stringValue = Strings.catalinaBugTitle.english
+            catalinaBugWorkaroundLabel.stringValue = Strings.catalinaWorkaround.english
+            catalinaBugButton.title = Strings.catalinaBugLinkLabel.english
+        }
     }
 
     func continuouslyCheckForSafariExtensionInstallState() {
@@ -80,15 +121,21 @@ private extension ViewController {
         SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: Identifiers.safariExtension.rawValue) { (state, error) in
             DispatchQueue.main.async { [weak self] in
                 guard state?.isEnabled ?? true else {
-                    self?.buttonCommandLabel.stringValue = Strings.buttonCommandLabelBase.english
-                    self?.catalinaBugLabel.isHidden = false
+                    self?.enableTabbyInstructionsLabel.stringValue = Strings.enableTabbyInstructions.english
+                    self?.setCatalinaBugVisibility(to: true)
                     return
                 }
-                self?.buttonCommandLabel.stringValue = Strings.buttonCommandLabelInstalled.english
-                self?.catalinaBugLabel.isHidden = true
+                self?.enableTabbyInstructionsLabel.stringValue = Strings.installed.english
+                self?.setCatalinaBugVisibility(to: false)
                 return
             }
         }
+    }
+
+    func setCatalinaBugVisibility(to state: Bool) {
+        catalinaBugTitleLabel.isHidden = !state
+        catalinaBugWorkaroundLabel.isHidden = !state
+        catalinaBugButton.isHidden = !state
     }
 
     func animateWinkingCat() {
@@ -107,5 +154,9 @@ private extension ViewController {
                 self.winkBGImage.isHidden = true
             }
         }
+    }
+
+    func bulleted(_ string: String) -> String {
+        String(" – \(string)")
     }
 }
