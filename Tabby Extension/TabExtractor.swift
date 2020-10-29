@@ -14,12 +14,20 @@ class TabExtractor {
         propertiesOfActivePages(from: everyPageInside(window))
     }
 
-    func pages(in pages: [SFSafariPage]) -> [SFSafariPageProperties] {
-        propertiesOfActivePages(from: pages)
-    }
+//    func pages(in pages: [SFSafariPage]) -> [SFSafariPageProperties] {
+//        propertiesOfActivePages(from: pages)
+//    }
 
     func page(in page: SFSafariPage) -> [SFSafariPageProperties] {
         propertiesOfActivePages(from: Array(arrayLiteral: page))
+    }
+
+    func pagesToRight(of page: SFSafariPage) -> [SFSafariPageProperties] {
+        propertiesOfActivePages(from: pages(to: .right, of: page))
+    }
+
+    func pagesToLeft(of page: SFSafariPage) -> [SFSafariPageProperties] {
+        propertiesOfActivePages(from: pages(to: .left, of: page))
     }
 }
 
@@ -62,6 +70,74 @@ private extension TabExtractor {
         }
 
         return allProperties
+    }
+
+    enum SliceDirection {
+        case left
+        case right
+    }
+
+    func pages(to side: SliceDirection, of page: SFSafariPage) -> [SFSafariPage] {
+        var allPages = [SFSafariPage]()
+        var isReady = false
+
+        let tabs = allTabs(surrounding: page)
+        guard let anchor = currentTab(of: page),
+              let anchorPosition = tabs.firstIndex(of: anchor)
+        else { return allPages }
+        var tabSlice = Array<SFSafariTab>.SubSequence()
+
+        switch side {
+            case .left:
+                tabSlice = tabs[...anchorPosition]
+            case .right:
+                tabSlice = tabs[anchorPosition...]
+        }
+
+        while !isReady {
+            tabSlice.enumerated().forEach { (index, tab) in
+                tab.getActivePage { page in
+                    guard let page = page else { return }
+                    allPages.append(page)
+                    if index == (tabSlice.count - 1) {
+                        isReady = true
+                    }
+                }
+            }
+        }
+
+        return allPages
+    }
+
+    func allTabs(surrounding page: SFSafariPage) -> [SFSafariTab] {
+        var allTabs = [SFSafariTab]()
+        var isReady = false
+
+        while !isReady {
+            page.getContainingTab { tab in
+                tab.getContainingWindow { window in
+                    guard let window = window else { return }
+                    window.getAllTabs { tabs in
+                        allTabs = tabs
+                        isReady = true
+                    }
+                }
+            }
+        }
+
+        return allTabs
+    }
+
+    func currentTab(of page: SFSafariPage) -> SFSafariTab? {
+        var currentTab: SFSafariTab?
+        var isReady = false
+        while !isReady {
+            page.getContainingTab { tab in
+                currentTab = tab
+                isReady = true
+            }
+        }
+        return currentTab
     }
 }
 

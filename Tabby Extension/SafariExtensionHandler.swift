@@ -35,61 +35,14 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             badge.updateWindow(of: page, with: links.count)
             
         case "copyRight":
-            page.getContainingTab { tab in
-                let currentTab = tab
-                tab.getContainingWindow { window in
-                    guard let _window = window else { return }
-                    _window.getAllTabs { tabs in
-                        guard let position = tabs.firstIndex(of: currentTab) else { return }
-                        let rightTabs = tabs[position...]
-                        
-                        rightTabs.enumerated().forEach { (rightTabIndex, tab) in
-                            tab.getActivePage { page in
-                                page?.getPropertiesWithCompletionHandler { props in
-                                    guard let _props = props,
-                                          _props.isActive else { return }
-                                    self.getLink(props: _props) { [weak self] (html, plain) in
-                                        self?.htmlLinks.append(html)
-                                        self?.plainLinks.append(plain)
-                                        if rightTabIndex == (rightTabs.count - 1) {
-                                            self?.copyToClipboard(fromWindow: _window)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            
-            
+            let links = construct.links(from: extracted.pagesToRight(of: page))
+            clipboard.copy(links)
+            badge.updateWindow(of: page, with: links.count)
+
         case "copyLeft":
-            page.getContainingTab { tab in
-                let currentTab = tab
-                tab.getContainingWindow { window in
-                    guard let _window = window else { return }
-                    _window.getAllTabs { tabs in
-                        guard let position = tabs.firstIndex(of: currentTab) else { return }
-                        let leftTabs = tabs[...position]
-                        
-                        leftTabs.enumerated().forEach { (leftTabIndex, tab) in
-                            tab.getActivePage { page in
-                                page?.getPropertiesWithCompletionHandler { props in
-                                    guard let _props = props,
-                                          _props.isActive else { return }
-                                    self.getLink(props: _props) { [weak self] (html, plain) in
-                                        self?.htmlLinks.append(html)
-                                        self?.plainLinks.append(plain)
-                                        if leftTabIndex == (leftTabs.count - 1) {
-                                            self?.copyToClipboard(fromWindow: _window)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            let links = construct.links(from: extracted.pagesToLeft(of: page))
+            clipboard.copy(links)
+            badge.updateWindow(of: page, with: links.count)
 
         // Close tabs containing duplicate links
         case "closeDupes":
