@@ -11,23 +11,13 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-    }
+    func applicationDidFinishLaunching(_ aNotification: Notification) {}
     
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
+    func applicationWillTerminate(_ aNotification: Notification) {}
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        NSApplication.shared.windows.first?.makeKeyAndOrderFront(nil)
         if flag { return false }
         else { return true }
     }
-    
 }
-
-//https://stackoverflow.com/questions/30595478/how-do-you-re-open-a-closed-window-created-in-the-storyboard-in-os-x
-
-//https://stackoverflow.com/questions/39400795/os-x-app-doesnt-launch-new-window-on-dock-icon-press-in-swift
-
-//https://stackoverflow.com/questions/30921737/open-new-window-in-swift

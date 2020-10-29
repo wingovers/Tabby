@@ -13,11 +13,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Tabby the Copycat" id="1Xt-HY-uBw">
+                            <menuItem title="Install Tabby the Copycat" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Tabby the Copycat" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Install Tabby the Copycat" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="Hide Tabby the Copycat" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide Tabby" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -34,6 +34,12 @@
                                                 <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="Dhg-Le-xox"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Show Install Tabby" id="fsC-e6-Dbb" userLabel="Show Install Tabby">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <segue destination="B8D-0N-5wS" kind="show" id="r3j-VT-wD7"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
                                         <menuItem title="Quit Tabby the Copycat" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
@@ -47,6 +53,12 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="Zg6-Ka-n8l">
                                     <items>
+                                        <menuItem title="Show Install Tabby" id="AKO-Wo-kdK" userLabel="Show Install Window">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <segue destination="B8D-0N-5wS" kind="show" id="1ga-R6-gbt"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Minimize" keyEquivalent="m" id="jAe-00-uyh">
                                             <connections>
                                                 <action selector="performMiniaturize:" target="Ady-hI-5gd" id="Ml3-yr-Xbe"/>
@@ -58,8 +70,7 @@
                                                 <action selector="performZoom:" target="Ady-hI-5gd" id="cee-6p-1tV"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="Oma-hM-2wL"/>
-                                        <menuItem title="Bring All to Front" id="evz-d8-g1V">
+                                        <menuItem title="Bring to Front" id="evz-d8-g1V" userLabel="Bring to Front">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="arrangeInFront:" target="Ady-hI-5gd" id="7Am-s6-WHZ"/>
@@ -84,9 +95,9 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Install Extension" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" animationBehavior="utilityWindow" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
+                    <window key="window" title="Install Extension" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" releasedWhenClosed="NO" animationBehavior="utilityWindow" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
-                        <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" participatesInCycle="YES" fullScreenNone="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" fullScreenNone="YES"/>
                         <rect key="contentRect" x="168" y="516" width="900" height="600"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
                         <userDefinedRuntimeAttributes>
@@ -276,6 +287,9 @@ DQ
             <point key="canvasLocation" x="74.5" y="951"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1ga-R6-gbt"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Button" width="750" height="114"/>
         <image name="DemoMenuIcon" width="168" height="105"/>

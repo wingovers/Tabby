@@ -16,6 +16,9 @@
 		94413ADA24807D6100329A04 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413AD924807D6100329A04 /* SafariExtensionHandler.swift */; };
 		945E1533254A58CA00F47FCA /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 945E1531254A58CA00F47FCA /* ToolbarItemIcon.pdf */; };
 		945E1534254A58CA00F47FCA /* ToolbarItemIconCopied.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 945E1532254A58CA00F47FCA /* ToolbarItemIconCopied.pdf */; };
+		94D5D087254B0041008FEDC1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5D086254B0041008FEDC1 /* Strings.swift */; };
+		94D5D08E254B006A008FEDC1 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5D08D254B006A008FEDC1 /* Identifiers.swift */; };
+		94D5D094254B007C008FEDC1 /* ImageAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5D093254B007C008FEDC1 /* ImageAssets.swift */; };
 		94E57AD3254A2F6F00FDC861 /* TabExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AD2254A2F6F00FDC861 /* TabExtractor.swift */; };
 		94E57AD7254A389500FDC861 /* ClipboardAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AD6254A389500FDC861 /* ClipboardAgent.swift */; };
 		94E57ADC254A503900FDC861 /* BadgeUpdateAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57ADB254A503900FDC861 /* BadgeUpdateAgent.swift */; };
@@ -62,6 +65,9 @@
 		94413AD924807D6100329A04 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
 		945E1531254A58CA00F47FCA /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		945E1532254A58CA00F47FCA /* ToolbarItemIconCopied.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIconCopied.pdf; sourceTree = "<group>"; };
+		94D5D086254B0041008FEDC1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		94D5D08D254B006A008FEDC1 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		94D5D093254B007C008FEDC1 /* ImageAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssets.swift; sourceTree = "<group>"; };
 		94E57AD2254A2F6F00FDC861 /* TabExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabExtractor.swift; sourceTree = "<group>"; };
 		94E57AD6254A389500FDC861 /* ClipboardAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardAgent.swift; sourceTree = "<group>"; };
 		94E57ADB254A503900FDC861 /* BadgeUpdateAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeUpdateAgent.swift; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 		94413AA424806F9800329A04 /* Tabby */ = {
 			isa = PBXGroup;
 			children = (
+				94D5D08C254B0057008FEDC1 /* Constants */,
 				94413AA524806F9800329A04 /* Tabby.entitlements */,
 				94413AA724806F9800329A04 /* AppDelegate.swift */,
 				94413AD324807C7C00329A04 /* Main.storyboard */,
@@ -139,6 +146,16 @@
 				945E1532254A58CA00F47FCA /* ToolbarItemIconCopied.pdf */,
 			);
 			path = "Tabby Extension";
+			sourceTree = "<group>";
+		};
+		94D5D08C254B0057008FEDC1 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				94D5D086254B0041008FEDC1 /* Strings.swift */,
+				94D5D08D254B006A008FEDC1 /* Identifiers.swift */,
+				94D5D093254B007C008FEDC1 /* ImageAssets.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		94E57ADA254A502200FDC861 /* Services */ = {
@@ -199,7 +216,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = Wingover;
 				TargetAttributes = {
 					94413AA124806F9800329A04 = {
@@ -255,7 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D5D094254B007C008FEDC1 /* ImageAssets.swift in Sources */,
 				94413AD824807CA500329A04 /* ViewController.swift in Sources */,
+				94D5D087254B0041008FEDC1 /* Strings.swift in Sources */,
+				94D5D08E254B006A008FEDC1 /* Identifiers.swift in Sources */,
 				94413AA824806F9800329A04 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +330,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -370,6 +391,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -401,6 +423,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Tabby Extension/Tabby_Extension.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = FVC2SFVFYG;
@@ -423,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Tabby Extension/Tabby_Extension.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = FVC2SFVFYG;
@@ -447,6 +471,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Tabby/Tabby.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 10;
@@ -471,6 +496,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Tabby/Tabby.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 10;
