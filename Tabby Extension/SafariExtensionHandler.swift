@@ -12,33 +12,18 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
 
     var htmlLinks = [String]()
     var plainLinks = [String]()
+    let extracted = TabExtractor()
+    let construct = LinksConstructor()
+    let clipboard = ClipboardAgent()
+    let badge = BadgeUpdateAgent()
 
-    // MARK: - Intents / Logic Mixed
-    
-    // Pulls out properties for each Safari tab and then starts link creation, appends results to the HREFS array, and adds to pasteboard
     override func toolbarItemClicked(in window: SFSafariWindow) {
         htmlLinks = [String]()
         plainLinks = [String]()
 
-        window.getAllTabs { tabs in
-            tabs.enumerated().forEach { (tabIndex, tab) in
-                tab.getPagesWithCompletionHandler { pages in
-                    pages?.forEach { SFSafariPage in
-                        SFSafariPage.getPropertiesWithCompletionHandler { props in
-                            guard let _props = props,
-                                  _props.isActive else { return }
-                            self.getLink(props: _props) { [weak self] (html, plain) in
-                                self?.htmlLinks.append(html)
-                                self?.plainLinks.append(plain)
-                                if tabIndex == (tabs.count - 1) {
-                                    self?.copyToClipboard(fromWindow: window)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        let links = construct.links(from: extracted.pages(in: window))
+        clipboard.copy(links)
+        badge.update(window, with: links.count)
     }
     
     // Right clicking a webpage offers options to copy the current page's link, copy tabs to the right, copy tabs to the left, and close any duplicate tabs

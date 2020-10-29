@@ -17,6 +17,8 @@
 		94413ADA24807D6100329A04 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413AD924807D6100329A04 /* SafariExtensionHandler.swift */; };
 		9481C7DC24873C940092D070 /* ToolbarItemIconCopied.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9481C7DA24873C940092D070 /* ToolbarItemIconCopied.pdf */; };
 		9481C7DD24873C940092D070 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9481C7DB24873C940092D070 /* ToolbarItemIcon.pdf */; };
+		94E57AD3254A2F6F00FDC861 /* TabExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AD2254A2F6F00FDC861 /* TabExtractor.swift */; };
+		94E57AD7254A389500FDC861 /* ClipboardAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AD6254A389500FDC861 /* ClipboardAgent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		94413AD924807D6100329A04 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
 		9481C7DA24873C940092D070 /* ToolbarItemIconCopied.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIconCopied.pdf; path = Art/Flat/ToolbarItemIconCopied.pdf; sourceTree = SOURCE_ROOT; };
 		9481C7DB24873C940092D070 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIcon.pdf; path = Art/Flat/ToolbarItemIcon.pdf; sourceTree = SOURCE_ROOT; };
+		94E57AD2254A2F6F00FDC861 /* TabExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabExtractor.swift; sourceTree = "<group>"; };
+		94E57AD6254A389500FDC861 /* ClipboardAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardAgent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 				9481C7DA24873C940092D070 /* ToolbarItemIconCopied.pdf */,
 				94413AC424806F9C00329A04 /* Info.plist */,
 				94413AC924806F9C00329A04 /* Tabby_Extension.entitlements */,
+				94E57AD2254A2F6F00FDC861 /* TabExtractor.swift */,
+				94E57AD6254A389500FDC861 /* ClipboardAgent.swift */,
 			);
 			path = "Tabby Extension";
 			sourceTree = "<group>";
@@ -243,6 +249,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94E57AD3254A2F6F00FDC861 /* TabExtractor.swift in Sources */,
+				94E57AD7254A389500FDC861 /* ClipboardAgent.swift in Sources */,
 				94413ADA24807D6100329A04 /* SafariExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
