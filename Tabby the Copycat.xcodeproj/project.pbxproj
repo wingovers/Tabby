@@ -15,8 +15,8 @@
 		94413AD624807C9700329A04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94413AD524807C9700329A04 /* Assets.xcassets */; };
 		94413AD824807CA500329A04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413AD724807CA500329A04 /* ViewController.swift */; };
 		94413ADA24807D6100329A04 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413AD924807D6100329A04 /* SafariExtensionHandler.swift */; };
-		9481C7DC24873C940092D070 /* ToolbarItemIconCopied.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9481C7DA24873C940092D070 /* ToolbarItemIconCopied.pdf */; };
-		9481C7DD24873C940092D070 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9481C7DB24873C940092D070 /* ToolbarItemIcon.pdf */; };
+		945E1533254A58CA00F47FCA /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 945E1531254A58CA00F47FCA /* ToolbarItemIcon.pdf */; };
+		945E1534254A58CA00F47FCA /* ToolbarItemIconCopied.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 945E1532254A58CA00F47FCA /* ToolbarItemIconCopied.pdf */; };
 		94E57AD3254A2F6F00FDC861 /* TabExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AD2254A2F6F00FDC861 /* TabExtractor.swift */; };
 		94E57AD7254A389500FDC861 /* ClipboardAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AD6254A389500FDC861 /* ClipboardAgent.swift */; };
 		94E57ADC254A503900FDC861 /* BadgeUpdateAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57ADB254A503900FDC861 /* BadgeUpdateAgent.swift */; };
@@ -61,8 +61,8 @@
 		94413AD524807C9700329A04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94413AD724807CA500329A04 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94413AD924807D6100329A04 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
-		9481C7DA24873C940092D070 /* ToolbarItemIconCopied.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIconCopied.pdf; path = Art/Flat/ToolbarItemIconCopied.pdf; sourceTree = SOURCE_ROOT; };
-		9481C7DB24873C940092D070 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIcon.pdf; path = Art/Flat/ToolbarItemIcon.pdf; sourceTree = SOURCE_ROOT; };
+		945E1531254A58CA00F47FCA /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
+		945E1532254A58CA00F47FCA /* ToolbarItemIconCopied.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIconCopied.pdf; sourceTree = "<group>"; };
 		94E57AD2254A2F6F00FDC861 /* TabExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabExtractor.swift; sourceTree = "<group>"; };
 		94E57AD6254A389500FDC861 /* ClipboardAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardAgent.swift; sourceTree = "<group>"; };
 		94E57ADB254A503900FDC861 /* BadgeUpdateAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeUpdateAgent.swift; sourceTree = "<group>"; };
@@ -134,10 +134,10 @@
 			children = (
 				94413AD924807D6100329A04 /* SafariExtensionHandler.swift */,
 				94E57ADA254A502200FDC861 /* Services */,
-				9481C7DB24873C940092D070 /* ToolbarItemIcon.pdf */,
-				9481C7DA24873C940092D070 /* ToolbarItemIconCopied.pdf */,
 				94413AC424806F9C00329A04 /* Info.plist */,
 				94413AC924806F9C00329A04 /* Tabby_Extension.entitlements */,
+				945E1531254A58CA00F47FCA /* ToolbarItemIcon.pdf */,
+				945E1532254A58CA00F47FCA /* ToolbarItemIconCopied.pdf */,
 			);
 			path = "Tabby Extension";
 			sourceTree = "<group>";
@@ -245,8 +245,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9481C7DD24873C940092D070 /* ToolbarItemIcon.pdf in Resources */,
-				9481C7DC24873C940092D070 /* ToolbarItemIconCopied.pdf in Resources */,
+				945E1534254A58CA00F47FCA /* ToolbarItemIconCopied.pdf in Resources */,
+				945E1533254A58CA00F47FCA /* ToolbarItemIcon.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
