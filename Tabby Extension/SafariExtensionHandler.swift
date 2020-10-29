@@ -44,7 +44,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             badge.updateWindow(of: page, with: links.count)
 
         case "copyAllWindows":
-            let links = construct.links(from: extracted.allSafariWindows(relatedTo: page))
+            let links = construct.links(from: extracted.allSafariWindows())
             clipboard.copy(links)
             badge.updateWindow(of: page, with: links.count)
 

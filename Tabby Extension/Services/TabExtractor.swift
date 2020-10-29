@@ -10,12 +10,13 @@ import Foundation
 import SafariServices
 
 class SafariExtractor {
-    func pages(in window: SFSafariWindow) -> [SFSafariPageProperties] {
-        propertiesOfActivePages(from: everyPageInside(window))
-    }
 
     func page(in page: SFSafariPage) -> [SFSafariPageProperties] {
         propertiesOfActivePages(from: Array(arrayLiteral: page))
+    }
+
+    func pages(in window: SFSafariWindow) -> [SFSafariPageProperties] {
+        propertiesOfActivePages(from: everyPageInside(window))
     }
 
     func pages(to side: SliceDirection, of page: SFSafariPage) -> [SFSafariPageProperties] {
@@ -25,6 +26,23 @@ class SafariExtractor {
     enum SliceDirection {
         case left
         case right
+    }
+
+    func allSafariWindows() -> [SFSafariPageProperties] {
+        var allPages = [SFSafariPage]()
+        var isReady = false
+
+        while !isReady {
+            SFSafariApplication.getAllWindows { windows in
+                windows.enumerated().forEach { [self] (index, window) in
+                    allPages.append(contentsOf: everyPageInside(window))
+                    guard index == (windows.count - 1) else { return }
+                    isReady = true
+                }
+            }
+        }
+
+        return propertiesOfActivePages(from: allPages)
     }
 
     func tabs(surrounding page: SFSafariPage) -> [SFSafariTab] {
@@ -44,10 +62,6 @@ class SafariExtractor {
         }
 
         return allTabs
-    }
-
-    func allSafariWindows(relatedTo page: SFSafariPage) -> [SFSafariPageProperties] {
-        
     }
 }
 
