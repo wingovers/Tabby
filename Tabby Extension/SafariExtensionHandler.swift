@@ -18,9 +18,6 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     let badge = BadgeUpdateAgent()
 
     override func toolbarItemClicked(in window: SFSafariWindow) {
-        htmlLinks = [String]()
-        plainLinks = [String]()
-
         let links = construct.links(from: extracted.pages(in: window))
         clipboard.copy(links)
         badge.update(window, with: links.count)
@@ -33,23 +30,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
 
         switch command {
         case "copyTab":
-            // Copy the current page's link
-            page.getPropertiesWithCompletionHandler { props in
-                guard let _props = props,
-                      _props.isActive else { return }
-                self.getLink(props: _props) { (html, plain) in
-                    NSPasteboard.general.clearContents()
-                    NSPasteboard.general.setString(html, forType: .html)
-                    NSPasteboard.general.setString(plain, forType: .string)
-                }
-            }
-            
-            // Update toolbar icon badge
-            page.getContainingTab { tab in
-                tab.getContainingWindow { window in
-                    self.setBadge(ofWindow: window!, contents: "1")
-                }
-            }
+            let links = construct.links(from: extracted.page(in: page))
+            clipboard.copy(links)
+            badge.updateWindow(of: page, with: links.count)
             
         case "copyRight":
             page.getContainingTab { tab in

@@ -13,6 +13,14 @@ class TabExtractor {
     func pages(in window: SFSafariWindow) -> [SFSafariPageProperties] {
         propertiesOfActivePages(from: everyPageInside(window))
     }
+
+    func pages(in pages: [SFSafariPage]) -> [SFSafariPageProperties] {
+        propertiesOfActivePages(from: pages)
+    }
+
+    func page(in page: SFSafariPage) -> [SFSafariPageProperties] {
+        propertiesOfActivePages(from: Array(arrayLiteral: page))
+    }
 }
 
 private extension TabExtractor {

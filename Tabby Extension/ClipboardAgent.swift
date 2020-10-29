@@ -56,4 +56,13 @@ class BadgeUpdateAgent {
             }
         }
     }
+
+    func updateWindow(of page: SFSafariPage, with count: Int) {
+        page.getContainingTab { tab in
+            tab.getContainingWindow { [self] window in
+                guard let window = window else { return }
+                update(window, with: count)
+            }
+        }
+    }
 }
