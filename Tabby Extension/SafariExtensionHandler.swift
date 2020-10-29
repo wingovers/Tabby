@@ -14,7 +14,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     let badge = BadgeUpdateAgent()
     let close = TabCloser()
 
-    let extracted = TabExtractor()
+    let extracted = SafariExtractor()
     let construct = LinksConstructor()
 
     override func toolbarItemClicked(in window: SFSafariWindow) {
@@ -27,18 +27,24 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                                           in page: SFSafariPage,
                                           userInfo: [String : Any]? = nil) {
         switch command {
+
         case "copyTab":
             let links = construct.links(from: extracted.page(in: page))
             clipboard.copy(links)
             badge.updateWindow(of: page, with: links.count)
             
         case "copyRight":
-            let links = construct.links(from: extracted.pagesToRight(of: page))
+            let links = construct.links(from: extracted.pages(to: .right, of: page))
             clipboard.copy(links)
             badge.updateWindow(of: page, with: links.count)
 
         case "copyLeft":
-            let links = construct.links(from: extracted.pagesToLeft(of: page))
+            let links = construct.links(from: extracted.pages(to: .left, of: page))
+            clipboard.copy(links)
+            badge.updateWindow(of: page, with: links.count)
+
+        case "copyAllWindows":
+            let links = construct.links(from: extracted.allSafariWindows(relatedTo: page))
             clipboard.copy(links)
             badge.updateWindow(of: page, with: links.count)
 
@@ -46,7 +52,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             close.duplicates(in: extracted.tabs(surrounding: page))
 
         default:
-            NSLog("Context menu command unknown")
+            NSLog("Unknown context menu command received.")
         }
     }
 }

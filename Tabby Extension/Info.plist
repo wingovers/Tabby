@@ -50,6 +50,12 @@
 			</dict>
 			<dict>
 				<key>Command</key>
+				<string>copyAllWindows</string>
+				<key>Text</key>
+				<string>Copy Links  –  All Windows</string>
+			</dict>
+			<dict>
+				<key>Command</key>
 				<string>closeDupes</string>
 				<key>Text</key>
 				<string>Close Duplicate Tabs</string>

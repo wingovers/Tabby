@@ -9,7 +9,7 @@
 import Foundation
 import SafariServices
 
-class TabExtractor {
+class SafariExtractor {
     func pages(in window: SFSafariWindow) -> [SFSafariPageProperties] {
         propertiesOfActivePages(from: everyPageInside(window))
     }
@@ -18,12 +18,13 @@ class TabExtractor {
         propertiesOfActivePages(from: Array(arrayLiteral: page))
     }
 
-    func pagesToRight(of page: SFSafariPage) -> [SFSafariPageProperties] {
-        propertiesOfActivePages(from: pages(to: .right, of: page))
+    func pages(to side: SliceDirection, of page: SFSafariPage) -> [SFSafariPageProperties] {
+        propertiesOfActivePages(from: pages(to: side, of: page))
     }
 
-    func pagesToLeft(of page: SFSafariPage) -> [SFSafariPageProperties] {
-        propertiesOfActivePages(from: pages(to: .left, of: page))
+    enum SliceDirection {
+        case left
+        case right
     }
 
     func tabs(surrounding page: SFSafariPage) -> [SFSafariTab] {
@@ -44,9 +45,13 @@ class TabExtractor {
 
         return allTabs
     }
+
+    func allSafariWindows(relatedTo page: SFSafariPage) -> [SFSafariPageProperties] {
+        
+    }
 }
 
-private extension TabExtractor {
+private extension SafariExtractor {
 
     func propertiesOfActivePages(from pages: [SFSafariPage]) -> [SFSafariPageProperties] {
         var allProperties = [SFSafariPageProperties]()
@@ -130,10 +135,5 @@ private extension TabExtractor {
             }
         }
         return currentTab
-    }
-
-    enum SliceDirection {
-        case left
-        case right
     }
 }
