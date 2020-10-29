@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,6 +43,31 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Window" id="pep-Hj-QIB">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Window" systemMenu="window" id="Zg6-Ka-n8l">
+                                    <items>
+                                        <menuItem title="Minimize" keyEquivalent="m" id="jAe-00-uyh">
+                                            <connections>
+                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="Ml3-yr-Xbe"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Zoom" id="6Ti-ft-UX2">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performZoom:" target="Ady-hI-5gd" id="cee-6p-1tV"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="Oma-hM-2wL"/>
+                                        <menuItem title="Bring All to Front" id="evz-d8-g1V">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="arrangeInFront:" target="Ady-hI-5gd" id="7Am-s6-WHZ"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                         </items>
                     </menu>
                     <connections>
@@ -59,9 +84,9 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Install Extension" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" animationBehavior="alertPanel" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
+                    <window key="window" title="Install Extension" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" animationBehavior="utilityWindow" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
-                        <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" participatesInCycle="YES" fullScreenNone="YES"/>
                         <rect key="contentRect" x="168" y="516" width="900" height="600"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
                         <userDefinedRuntimeAttributes>
@@ -98,10 +123,10 @@
                                 <accessibility description="Copy Tabs Toolbar Icon" identifier="Copy Tabs Toolbar Icon"/>
                             </imageView>
                             <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXe-SX-Bmc" userLabel="toolbarText">
-                                <rect key="frame" x="136" y="330" width="181" height="29"/>
+                                <rect key="frame" x="136" y="330" width="178" height="29"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fNh-YX-VJe">
-                                        <rect key="frame" x="-2" y="0.0" width="185" height="29"/>
+                                        <rect key="frame" x="-2" y="0.0" width="182" height="29"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Tap the toolbar to..." placeholderString="Tap the Toolbar" id="vqw-of-Sp3">
                                             <font key="font" size="24" name="SFProDisplay-Thin"/>
                                             <color key="textColor" red="0.99519230769230771" green="0.99038461538461542" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -158,7 +183,7 @@ DQ
                                 <rect key="frame" x="136" y="227" width="375" height="58"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HbS-P9-wko">
-                                        <rect key="frame" x="-2" y="29" width="139" height="29"/>
+                                        <rect key="frame" x="-2" y="29" width="136" height="29"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Right click to..." placeholderString="Right Click" id="2Ac-Bs-Ksh">
                                             <font key="font" size="24" name="SFProDisplay-Thin"/>
                                             <color key="textColor" red="0.9951923077" green="0.9903846154" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

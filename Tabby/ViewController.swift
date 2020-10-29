@@ -9,16 +9,26 @@
 import Cocoa
 import SafariServices.SFSafariApplication
 
-struct InstallStrings {
-    let buttonCommandLabelBase = "Enable Tabby by checking\u{2028}its box in Safari Preferences."
-    let buttonCommandLabelInstalled = "Your Tabby is now installed!"
-    let rightClickHeadlineLabelBase = "Right click to close duplicate tabs"
-    let rightClickCopyLabelBase = "or copy links to one side or from all windows"
-    let toolbarTapHeadlineLabelBase = "Tap the toolbar cat\u{2028}to copy links for all tabs"
-    let openSafariButtonBase = "Open Safari Preferences"
-    let catalinaWarning = "If installing fails, try wiggling \nthe window. Catalina has a sporadic bug for all extensions."
-    let catalinaPlaceholder = ""
-    let privacyStatment = "Privacy: Tabby collects no data from you, period.\u{2028}Verify the source code yourself at github.com/wingovers/Tabby"
+enum Strings: String {
+    case buttonCommandLabelBase = "Enable Tabby by checking\u{2028}its box in Safari Preferences."
+    case buttonCommandLabelInstalled = "Your Tabby is now installed!"
+    case rightClickHeadlineLabelBase = "Right click to close duplicate tabs"
+    case rightClickCopyLabelBase = "or copy links to one side or from all windows"
+    case toolbarTapHeadlineLabelBase = "Tap the toolbar cat\u{2028}to copy links for all tabs"
+    case openSafariButtonBase = "Open Safari Preferences"
+    case catalinaWarning = "If installing fails, try wiggling \nthe window. Catalina has a sporadic bug for all extensions."
+    case catalinaPlaceholder = ""
+    case privacyStatment = "Privacy: Tabby collects no data from you, period.\u{2028}Verify the source code yourself at github.com/wingovers/Tabby"
+
+    var english: String { self.rawValue }
+}
+
+enum Identifiers: String {
+    case safariExtension = "wingover.Tabby.Extension"
+}
+
+enum ImageAssets: String {
+    case install = "Install"
 }
 
 class ViewController: NSViewController {
@@ -36,17 +46,6 @@ class ViewController: NSViewController {
         super.viewWillAppear()
         setupTransparentWindowBackground()
     }
-
-    func setupTransparentWindowBackground() {
-        view.wantsLayer = true
-        let bgImage = NSImage(named: "Install")
-        self.view.layer!.contents = bgImage
-        view.window?.backgroundColor = .clear
-        view.window?.isOpaque = false
-        view.window?.isMovableByWindowBackground = true
-    }
-
-    let strings = InstallStrings()
     
     override func viewDidLoad() {
         // Start timer for install state label (buttonCommandLabel)
@@ -58,12 +57,12 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         // Set labels
-        self.toolbarTapHeadlineLabel.stringValue = strings.toolbarTapHeadlineLabelBase
-        self.rightClickHeadlineLabel.stringValue = strings.rightClickHeadlineLabelBase
-        self.rightClickCopyLabel.stringValue = strings.rightClickCopyLabelBase
-        self.buttonCommandLabel.stringValue = strings.buttonCommandLabelBase
-        self.openSafariExtensionPreferences.title = strings.openSafariButtonBase
-        self.privacyLabel.stringValue = strings.privacyStatment
+        toolbarTapHeadlineLabel.stringValue = Strings.toolbarTapHeadlineLabelBase.english
+        rightClickHeadlineLabel.stringValue = Strings.rightClickHeadlineLabelBase.english
+        rightClickCopyLabel.stringValue = Strings.rightClickCopyLabelBase.english
+        buttonCommandLabel.stringValue = Strings.buttonCommandLabelBase.english
+        openSafariExtensionPreferences.title = Strings.openSafariButtonBase.english
+        privacyLabel.stringValue = Strings.privacyStatment.english
         
         // Winking Tabby cat in upper right corner
         winkBGImage.isHidden = true
@@ -75,17 +74,26 @@ class ViewController: NSViewController {
     
     // Link to Safari Preferences
     @IBAction func openSafariExtensionPreferences(_ sender: AnyObject?) {
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: "wingover.Tabby.Extension") { error in
+        SFSafariApplication.showPreferencesForExtension(withIdentifier: Identifiers.safariExtension.rawValue) { error in
             if let err = error {
                 NSLog("Error \(String(describing: err))") }
         }
+    }
+
+    func setupTransparentWindowBackground() {
+        view.wantsLayer = true
+        let bgImage = NSImage(named: ImageAssets.install.rawValue)
+        self.view.layer!.contents = bgImage
+        view.window?.backgroundColor = .clear
+        view.window?.isOpaque = false
+        view.window?.isMovableByWindowBackground = true
     }
     
     // Checks for MacOS version 10.15.3+ A sporadic bug was introduced that can make the install checkbox unresponsive. One workaround is shaking the preferences pane to restore responsiveness. Jeff Johnson documented the bug: https://lapcatsoftware.com/articles/enable-extensions.html
     func showCatalinaBug() {
         let os = ProcessInfo().operatingSystemVersion
         guard os.majorVersion > 9, os.minorVersion > 14, os.patchVersion > 2 else { return }
-        self.catalinaBugLabel.stringValue = strings.catalinaWarning
+        self.catalinaBugLabel.stringValue = Strings.catalinaWarning.english
     }
     
     // Fires about every second to display confirmation of intall state
@@ -99,15 +107,15 @@ class ViewController: NSViewController {
     
     // Checks whether this extension is installed, setting a label in response, and hiding the Catalina bug tip if installation is successful
     func getInstallState() {
-        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: "wingover.Tabby.Extension") { (state, error) in
-            DispatchQueue.main.async {
+        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: Identifiers.safariExtension.rawValue) { (state, error) in
+            DispatchQueue.main.async { [self] in
                 guard state?.isEnabled ?? true else {
-                    self.buttonCommandLabel.stringValue = strings.buttonCommandLabelBase
-                    self.catalinaBugLabel.isHidden = false
+                    buttonCommandLabel.stringValue = Strings.buttonCommandLabelBase.english
+                    catalinaBugLabel.isHidden = false
                     return
                 }
-                self.buttonCommandLabel.stringValue = strings.buttonCommandLabelInstalled
-                self.catalinaBugLabel.isHidden = true
+                buttonCommandLabel.stringValue = Strings.buttonCommandLabelInstalled.english
+                catalinaBugLabel.isHidden = true
                 return
             }
         }
