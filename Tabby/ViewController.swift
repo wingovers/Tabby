@@ -20,6 +20,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         continuouslyCheckForSafariExtensionInstallState()
         populateTextFields()
+        setupAccessibility()
         animateWinkingCat()
         super.viewDidLoad()
     }
@@ -91,6 +92,25 @@ private extension ViewController {
         populateWarningForCatalinaBug(for: currentOS())
     }
 
+    func setupAccessibility() {
+        winkBGImage.setAccessibilityLabel("Winking cat")
+        winkBGImage.setAccessibilityRole(.image)
+
+        catalinaBugButton.setAccessibilityRole(.link)
+        privacyLink.setAccessibilityRole(.link)
+
+        let toolbarTap = NSAccessibilityElement()
+        toolbarTap.setAccessibilityLabel(toolbarTapHeadlineLabel.stringValue)
+        toolbarTap.setAccessibilityFrame(toolbarTapHeadlineLabel.frame.union(toolbarTapResultLabel.frame))
+        let rightClick = NSAccessibilityElement()
+        rightClick.setAccessibilityLabel(rightClickHeadlineLabel.stringValue)
+        rightClick.setAccessibilityFrame(rightClickHeadlineLabel.frame
+                                            .union(rightClickBullet1Label.frame)
+                                            .union(rightClickBullet2Label.frame)
+                                            .union(rightClickBullet3Label.frame))
+
+    }
+
     func currentOS() -> OperatingSystemVersion {
         if ProcessInfo().arguments.contains("TestCatalinaBugResponse") {
             return OperatingSystemVersion(majorVersion: 10, minorVersion: 15, patchVersion: 3)
@@ -119,7 +139,7 @@ private extension ViewController {
     func updateLabelsWithSafariExtensionInstallState() {
         SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: Identifiers.safariExtension.rawValue) { (state, error) in
             DispatchQueue.main.async { [weak self] in
-                guard state?.isEnabled ?? true else {
+                guard state?.isEnabled == .some(true) else {
                     self?.enableTabbyInstructionsLabel.stringValue = Strings.enableTabbyInstructions.english
                     self?.setCatalinaBugVisibility(to: true)
                     return

@@ -25,9 +25,11 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
 
     override func toolbarItemClicked(in window: SFSafariWindow) {
+        NSLog(#function, "start")
         let links = construct.links(from: extracted.pages(in: window))
-        clipboard.copy(links)
         badge.update(window, with: links.count)
+        clipboard.copy(links)
+        NSLog(#function, "end")
     }
 
     override func contextMenuItemSelected(withCommand command: String,

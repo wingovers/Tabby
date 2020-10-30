@@ -12,7 +12,7 @@
 		<key>Tabby the Copycat Extension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>Tabby the Copycat.xcscheme_^#shared#^_</key>
 		<dict>
@@ -23,6 +23,29 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>942B752B254B5E0B00646169</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94413AA124806F9800329A04</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94413AB424806F9C00329A04</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>947FDF41254BB53F0091710B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

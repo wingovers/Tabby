@@ -22,7 +22,6 @@ class TabbytheCopycat_TabClosing_Tests: XCTestCase {
         sut.duplicates(in: test.testCases)
         wait(for: [test.asyncExpectation], timeout: 1)
         let results = test.testCases.map { $0.didClose }
-        print(results)
         XCTAssertEqual(results, test.expectations)
     }
 
@@ -33,7 +32,6 @@ class TabbytheCopycat_TabClosing_Tests: XCTestCase {
         sut.duplicates(in: test.testCases)
         wait(for: [test.asyncExpectation], timeout: 1)
         let results = test.testCases.map { $0.didClose }
-        print(results)
         XCTAssertEqual(results, test.expectations)
     }
 }

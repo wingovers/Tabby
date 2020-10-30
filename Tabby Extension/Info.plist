@@ -80,9 +80,7 @@
 	</dict>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 Ryan Ferrell. All rights reserved.</string>
-	<key>NSHumanReadableCopyright - 2</key>
-	<string>Copyright © 2020 Ryan Ferrell. All rights reserved.</string>
 	<key>NSHumanReadableDescription</key>
-	<string>Copy links for open tabs — or close duplicate tabs. All browser data stays local.</string>
+	<string>Copy links for open tabs or close duplicates. Privacy: No data leaves your computer. Open source at www.github.com/wingovers/Tabby. Suggestions welcome.</string>
 </dict>
 </plist>
