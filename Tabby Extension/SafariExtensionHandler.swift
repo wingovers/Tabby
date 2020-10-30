@@ -10,12 +10,19 @@ import SafariServices
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
 
-    let clipboard = ClipboardAgent()
-    let badge = BadgeUpdateAgent()
-    let close = TabCloser()
+    let badge: BadgeUpdating
+    let clipboard: Clipboarding
+    let close: TabClosing
+    let construct: LinksConstructing
+    let extracted: SafariExtracting
 
-    let extracted = SafariExtractor()
-    let construct = LinksConstructor()
+    override init() {
+        badge = BadgeUpdateAgent()
+        clipboard = ClipboardAgent()
+        close = TabCloser()
+        construct = LinksConstructor()
+        extracted = SafariExtractor()
+    }
 
     override func toolbarItemClicked(in window: SFSafariWindow) {
         let links = construct.links(from: extracted.pages(in: window))

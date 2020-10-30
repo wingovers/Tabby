@@ -9,7 +9,7 @@
 import Foundation
 import SafariServices
 
-class TabCloser {
+class TabCloser: TabClosing {
     func duplicates(in tabs: [SFSafariTab]) {
         var uniqueURLs = Set<String>()
         

@@ -9,26 +9,24 @@
 import Foundation
 import SafariServices
 
-class SafariExtractor {
+class SafariExtractor: SafariExtracting {
 
-    func page(in page: SFSafariPage) -> [SFSafariPageProperties] {
+    func page(in page: SFSafariPage) -> [LinkConstructingInput] {
         propertiesOfActivePages(from: Array(arrayLiteral: page))
+            .asLinkInput()
     }
 
-    func pages(in window: SFSafariWindow) -> [SFSafariPageProperties] {
+    func pages(in window: SFSafariWindow) -> [LinkConstructingInput] {
         propertiesOfActivePages(from: everyPageInside(window))
+            .asLinkInput()
     }
 
-    func pages(to side: SliceDirection, of page: SFSafariPage) -> [SFSafariPageProperties] {
+    func pages(to side: SliceDirection, of page: SFSafariPage) -> [LinkConstructingInput] {
         propertiesOfActivePages(from: pages(to: side, of: page))
+            .asLinkInput()
     }
 
-    enum SliceDirection {
-        case left
-        case right
-    }
-
-    func allSafariWindows() -> [SFSafariPageProperties] {
+    func allSafariWindows() -> [LinkConstructingInput] {
         var allPages = [SFSafariPage]()
         var isReady = false
 
@@ -42,7 +40,7 @@ class SafariExtractor {
             }
         }
 
-        return propertiesOfActivePages(from: allPages)
+        return propertiesOfActivePages(from: allPages).asLinkInput()
     }
 
     func tabs(surrounding page: SFSafariPage) -> [SFSafariTab] {
@@ -66,7 +64,6 @@ class SafariExtractor {
 }
 
 private extension SafariExtractor {
-
     func propertiesOfActivePages(from pages: [SFSafariPage]) -> [SFSafariPageProperties] {
         var allProperties = [SFSafariPageProperties]()
         var isReady = false

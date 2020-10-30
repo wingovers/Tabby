@@ -12,6 +12,18 @@ import SafariServices.SFSafariExtensionManager
 
 class ViewController: NSViewController {
 
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        setupTransparentWindowBackground()
+    }
+
+    override func viewDidLoad() {
+        continuouslyCheckForSafariExtensionInstallState()
+        populateTextFields()
+        animateWinkingCat()
+        super.viewDidLoad()
+    }
+
     @IBOutlet weak var winkBGImage: NSImageView!
     @IBOutlet weak var toolbarTapHeadlineLabel: NSTextField!
     @IBOutlet weak var toolbarTapResultLabel: NSTextField!
@@ -26,20 +38,6 @@ class ViewController: NSViewController {
     @IBOutlet weak var catalinaBugButton: NSButton!
     @IBOutlet weak var privacyLabel: NSTextField!
     @IBOutlet weak var privacyLink: NSButton!
-
-    
-    
-    override func viewWillAppear() {
-        super.viewWillAppear()
-        setupTransparentWindowBackground()
-    }
-    
-    override func viewDidLoad() {
-        continuouslyCheckForSafariExtensionInstallState()
-        populateTextFields()
-        animateWinkingCat()
-        super.viewDidLoad()
-    }
 
     @IBAction func openSafariExtensionPreferences(_ sender: AnyObject?) {
         SFSafariApplication.showPreferencesForExtension(withIdentifier: Identifiers.safariExtension.rawValue) { error in
@@ -68,6 +66,7 @@ class ViewController: NSViewController {
 }
 
 private extension ViewController {
+
     func setupTransparentWindowBackground() {
         view.wantsLayer = true
         let bgImage = NSImage(named: ImageAssets.install.rawValue)
@@ -93,19 +92,19 @@ private extension ViewController {
     }
 
     func currentOS() -> OperatingSystemVersion {
-        ProcessInfo().operatingSystemVersion
+        if ProcessInfo().arguments.contains("TestCatalinaBugResponse") {
+            return OperatingSystemVersion(majorVersion: 10, minorVersion: 15, patchVersion: 3)
+        } else {
+            return ProcessInfo().operatingSystemVersion
+        }
     }
 
     // Checks for MacOS version 10.15.3+ A sporadic bug was introduced that can make the install checkbox unresponsive. One workaround is shaking the preferences pane to restore responsiveness. Jeff Johnson documented the bug: https://lapcatsoftware.com/articles/enable-extensions.html
     func populateWarningForCatalinaBug(for os: OperatingSystemVersion) {
         DispatchQueue.main.async { [self] in
-            catalinaBugTitleLabel.stringValue = Strings.blank.english
-            catalinaBugWorkaroundLabel.stringValue = Strings.blank.english
-            catalinaBugButton.title = Strings.blank.english
+            setBugLabelsToCatalinaState(false)
             guard os.majorVersion == 10, os.minorVersion > 14, os.patchVersion > 2 else { return }
-            catalinaBugTitleLabel.stringValue = Strings.catalinaBugTitle.english
-            catalinaBugWorkaroundLabel.stringValue = Strings.catalinaWorkaround.english
-            catalinaBugButton.title = Strings.catalinaBugLinkLabel.english
+            setBugLabelsToCatalinaState(true)
         }
     }
 
@@ -130,6 +129,18 @@ private extension ViewController {
                 return
             }
         }
+    }
+
+    func setBugLabelsToCatalinaState(_ isCatalina: Bool) {
+        catalinaBugTitleLabel.stringValue = isCatalina
+            ? Strings.catalinaBugTitle.english
+            : Strings.blank.english
+        catalinaBugWorkaroundLabel.stringValue = isCatalina
+            ? Strings.catalinaWorkaround.english
+            : Strings.blank.english
+        catalinaBugButton.title = isCatalina
+            ? Strings.catalinaBugLinkLabel.english
+            : Strings.blank.english
     }
 
     func setCatalinaBugVisibility(to state: Bool) {

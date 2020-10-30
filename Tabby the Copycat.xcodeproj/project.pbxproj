@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		942B752F254B5E0B00646169 /* Tabby_the_CopycatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B752E254B5E0B00646169 /* Tabby_the_CopycatUITests.swift */; };
 		94413AA824806F9800329A04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413AA724806F9800329A04 /* AppDelegate.swift */; };
 		94413AB624806F9C00329A04 /* Tabby the Copycat Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 94413AB524806F9C00329A04 /* Tabby the Copycat Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		94413ABB24806F9C00329A04 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94413ABA24806F9C00329A04 /* Cocoa.framework */; };
@@ -16,23 +17,55 @@
 		94413ADA24807D6100329A04 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94413AD924807D6100329A04 /* SafariExtensionHandler.swift */; };
 		945E1533254A58CA00F47FCA /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 945E1531254A58CA00F47FCA /* ToolbarItemIcon.pdf */; };
 		945E1534254A58CA00F47FCA /* ToolbarItemIconCopied.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 945E1532254A58CA00F47FCA /* ToolbarItemIconCopied.pdf */; };
+		947FDF45254BB53F0091710B /* TabClosingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947FDF44254BB53F0091710B /* TabClosingTests.swift */; };
+		94893FB7254BB5D900F25B10 /* LinksConstructingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94893FB6254BB5D900F25B10 /* LinksConstructingTests.swift */; };
+		94B3DF9D254BA24F0072B1DE /* Clipboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DF9C254BA24F0072B1DE /* Clipboarding.swift */; };
+		94B3DFAD254BA2970072B1DE /* BadgeUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DFAC254BA2970072B1DE /* BadgeUpdating.swift */; };
+		94B3DFB8254BA2DE0072B1DE /* LinksConstructing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DFB7254BA2DE0072B1DE /* LinksConstructing.swift */; };
 		94D5D087254B0041008FEDC1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5D086254B0041008FEDC1 /* Strings.swift */; };
 		94D5D08E254B006A008FEDC1 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5D08D254B006A008FEDC1 /* Identifiers.swift */; };
 		94D5D094254B007C008FEDC1 /* ImageAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5D093254B007C008FEDC1 /* ImageAssets.swift */; };
-		94E57AD3254A2F6F00FDC861 /* TabExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AD2254A2F6F00FDC861 /* TabExtractor.swift */; };
+		94E57AD3254A2F6F00FDC861 /* SafariExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AD2254A2F6F00FDC861 /* SafariExtractor.swift */; };
 		94E57AD7254A389500FDC861 /* ClipboardAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AD6254A389500FDC861 /* ClipboardAgent.swift */; };
 		94E57ADC254A503900FDC861 /* BadgeUpdateAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57ADB254A503900FDC861 /* BadgeUpdateAgent.swift */; };
 		94E57AE2254A508300FDC861 /* LinksConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AE1254A508300FDC861 /* LinksConstructor.swift */; };
 		94E57AE8254A51B900FDC861 /* TabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AE7254A51B900FDC861 /* TabManager.swift */; };
+		94F5FE8E254BB8D900FBE71D /* LinksConstructing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DFB7254BA2DE0072B1DE /* LinksConstructing.swift */; };
+		94F5FE93254BB8DE00FBE71D /* LinksConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AE1254A508300FDC861 /* LinksConstructor.swift */; };
+		94F5FE99254BC3D100FBE71D /* BadgeUpdating_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FE98254BC3D100FBE71D /* BadgeUpdating_Tests.swift */; };
+		94F5FE9E254BC3F600FBE71D /* BadgeUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DFAC254BA2970072B1DE /* BadgeUpdating.swift */; };
+		94F5FEA3254BC3F900FBE71D /* BadgeUpdateAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57ADB254A503900FDC861 /* BadgeUpdateAgent.swift */; };
+		94F5FEA8254BC42400FBE71D /* ClipboardAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AD6254A389500FDC861 /* ClipboardAgent.swift */; };
+		94F5FEAD254BC42600FBE71D /* Clipboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DF9C254BA24F0072B1DE /* Clipboarding.swift */; };
+		94F5FEB3254BC44300FBE71D /* Clipboarding_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FEB2254BC44300FBE71D /* Clipboarding_Tests.swift */; };
+		94F5FEBA254BC4C000FBE71D /* TabClosing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FEB9254BC4C000FBE71D /* TabClosing.swift */; };
+		94F5FEBB254BC4C000FBE71D /* TabClosing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FEB9254BC4C000FBE71D /* TabClosing.swift */; };
+		94F5FEC4254BC4C400FBE71D /* TabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E57AE7254A51B900FDC861 /* TabManager.swift */; };
+		94F5FECF254BD0ED00FBE71D /* SafariExtracting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FECE254BD0ED00FBE71D /* SafariExtracting.swift */; };
+		94F5FED0254BD0ED00FBE71D /* SafariExtracting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FECE254BD0ED00FBE71D /* SafariExtracting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		942B7531254B5E0B00646169 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94413A9A24806F9800329A04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94413AA124806F9800329A04;
+			remoteInfo = "Tabby the Copycat";
+		};
 		94413AB724806F9C00329A04 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 94413A9A24806F9800329A04 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 94413AB424806F9C00329A04;
 			remoteInfo = "Tabby Extension";
+		};
+		947FDF47254BB53F0091710B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94413A9A24806F9800329A04 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94413AA124806F9800329A04;
+			remoteInfo = "Tabby the Copycat";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -51,6 +84,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9406D401254BAE2A00090D7B /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		942B752C254B5E0B00646169 /* Tabby the CopycatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tabby the CopycatUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		942B752E254B5E0B00646169 /* Tabby_the_CopycatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabby_the_CopycatUITests.swift; sourceTree = "<group>"; };
+		942B7530254B5E0B00646169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94413AA224806F9800329A04 /* Tabby the Copycat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tabby the Copycat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94413AA524806F9800329A04 /* Tabby.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tabby.entitlements; sourceTree = "<group>"; };
 		94413AA724806F9800329A04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,17 +102,35 @@
 		94413AD924807D6100329A04 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
 		945E1531254A58CA00F47FCA /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		945E1532254A58CA00F47FCA /* ToolbarItemIconCopied.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIconCopied.pdf; sourceTree = "<group>"; };
+		947FDF42254BB53F0091710B /* TabbytheCopycatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TabbytheCopycatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		947FDF44254BB53F0091710B /* TabClosingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabClosingTests.swift; sourceTree = "<group>"; };
+		947FDF46254BB53F0091710B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94893FB6254BB5D900F25B10 /* LinksConstructingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksConstructingTests.swift; sourceTree = "<group>"; };
+		94B3DF9C254BA24F0072B1DE /* Clipboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboarding.swift; sourceTree = "<group>"; };
+		94B3DFAC254BA2970072B1DE /* BadgeUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeUpdating.swift; sourceTree = "<group>"; };
+		94B3DFB7254BA2DE0072B1DE /* LinksConstructing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksConstructing.swift; sourceTree = "<group>"; };
 		94D5D086254B0041008FEDC1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		94D5D08D254B006A008FEDC1 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		94D5D093254B007C008FEDC1 /* ImageAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssets.swift; sourceTree = "<group>"; };
-		94E57AD2254A2F6F00FDC861 /* TabExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabExtractor.swift; sourceTree = "<group>"; };
+		94E57AD2254A2F6F00FDC861 /* SafariExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtractor.swift; sourceTree = "<group>"; };
 		94E57AD6254A389500FDC861 /* ClipboardAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardAgent.swift; sourceTree = "<group>"; };
 		94E57ADB254A503900FDC861 /* BadgeUpdateAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeUpdateAgent.swift; sourceTree = "<group>"; };
 		94E57AE1254A508300FDC861 /* LinksConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksConstructor.swift; sourceTree = "<group>"; };
 		94E57AE7254A51B900FDC861 /* TabManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManager.swift; sourceTree = "<group>"; };
+		94F5FE98254BC3D100FBE71D /* BadgeUpdating_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeUpdating_Tests.swift; sourceTree = "<group>"; };
+		94F5FEB2254BC44300FBE71D /* Clipboarding_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboarding_Tests.swift; sourceTree = "<group>"; };
+		94F5FEB9254BC4C000FBE71D /* TabClosing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabClosing.swift; sourceTree = "<group>"; };
+		94F5FECE254BD0ED00FBE71D /* SafariExtracting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtracting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		942B7529254B5E0B00646169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94413A9F24806F9800329A04 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -91,14 +146,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		947FDF3F254BB53F0091710B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		942B752D254B5E0B00646169 /* Tabby the CopycatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				942B752E254B5E0B00646169 /* Tabby_the_CopycatUITests.swift */,
+				942B7530254B5E0B00646169 /* Info.plist */,
+			);
+			path = "Tabby the CopycatUITests";
+			sourceTree = "<group>";
+		};
 		94413A9924806F9800329A04 = {
 			isa = PBXGroup;
 			children = (
 				94413AA424806F9800329A04 /* Tabby */,
 				94413ABC24806F9C00329A04 /* Tabby Extension */,
+				942B752D254B5E0B00646169 /* Tabby the CopycatUITests */,
+				947FDF43254BB53F0091710B /* TabbytheCopycatTests */,
 				94413AB924806F9C00329A04 /* Frameworks */,
 				94413AA324806F9800329A04 /* Products */,
 			);
@@ -109,6 +182,8 @@
 			children = (
 				94413AA224806F9800329A04 /* Tabby the Copycat.app */,
 				94413AB524806F9C00329A04 /* Tabby the Copycat Extension.appex */,
+				942B752C254B5E0B00646169 /* Tabby the CopycatUITests.xctest */,
+				947FDF42254BB53F0091710B /* TabbytheCopycatTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +205,7 @@
 		94413AB924806F9C00329A04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9406D401254BAE2A00090D7B /* SafariServices.framework */,
 				94413ABA24806F9C00329A04 /* Cocoa.framework */,
 			);
 			name = Frameworks;
@@ -148,6 +224,45 @@
 			path = "Tabby Extension";
 			sourceTree = "<group>";
 		};
+		947FDF43254BB53F0091710B /* TabbytheCopycatTests */ = {
+			isa = PBXGroup;
+			children = (
+				947FDF46254BB53F0091710B /* Info.plist */,
+				94F5FE98254BC3D100FBE71D /* BadgeUpdating_Tests.swift */,
+				94F5FEB2254BC44300FBE71D /* Clipboarding_Tests.swift */,
+				94893FB6254BB5D900F25B10 /* LinksConstructingTests.swift */,
+				947FDF44254BB53F0091710B /* TabClosingTests.swift */,
+			);
+			path = TabbytheCopycatTests;
+			sourceTree = "<group>";
+		};
+		94B3DFA6254BA2640072B1DE /* Clipboard */ = {
+			isa = PBXGroup;
+			children = (
+				94B3DF9C254BA24F0072B1DE /* Clipboarding.swift */,
+				94E57AD6254A389500FDC861 /* ClipboardAgent.swift */,
+			);
+			path = Clipboard;
+			sourceTree = "<group>";
+		};
+		94B3DFAB254BA27D0072B1DE /* ToolbarBadge */ = {
+			isa = PBXGroup;
+			children = (
+				94B3DFAC254BA2970072B1DE /* BadgeUpdating.swift */,
+				94E57ADB254A503900FDC861 /* BadgeUpdateAgent.swift */,
+			);
+			path = ToolbarBadge;
+			sourceTree = "<group>";
+		};
+		94B3DFB6254BA2BE0072B1DE /* LinksConstruction */ = {
+			isa = PBXGroup;
+			children = (
+				94B3DFB7254BA2DE0072B1DE /* LinksConstructing.swift */,
+				94E57AE1254A508300FDC861 /* LinksConstructor.swift */,
+			);
+			path = LinksConstruction;
+			sourceTree = "<group>";
+		};
 		94D5D08C254B0057008FEDC1 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,18 +276,54 @@
 		94E57ADA254A502200FDC861 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				94E57ADB254A503900FDC861 /* BadgeUpdateAgent.swift */,
-				94E57AD6254A389500FDC861 /* ClipboardAgent.swift */,
-				94E57AE1254A508300FDC861 /* LinksConstructor.swift */,
-				94E57AD2254A2F6F00FDC861 /* TabExtractor.swift */,
-				94E57AE7254A51B900FDC861 /* TabManager.swift */,
+				94F5FECD254BD0D200FBE71D /* SafariExtracting */,
+				94F5FEB8254BC49400FBE71D /* TabClosing */,
+				94B3DFAB254BA27D0072B1DE /* ToolbarBadge */,
+				94B3DFB6254BA2BE0072B1DE /* LinksConstruction */,
+				94B3DFA6254BA2640072B1DE /* Clipboard */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		94F5FEB8254BC49400FBE71D /* TabClosing */ = {
+			isa = PBXGroup;
+			children = (
+				94E57AE7254A51B900FDC861 /* TabManager.swift */,
+				94F5FEB9254BC4C000FBE71D /* TabClosing.swift */,
+			);
+			path = TabClosing;
+			sourceTree = "<group>";
+		};
+		94F5FECD254BD0D200FBE71D /* SafariExtracting */ = {
+			isa = PBXGroup;
+			children = (
+				94E57AD2254A2F6F00FDC861 /* SafariExtractor.swift */,
+				94F5FECE254BD0ED00FBE71D /* SafariExtracting.swift */,
+			);
+			path = SafariExtracting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		942B752B254B5E0B00646169 /* Tabby the CopycatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 942B7535254B5E0B00646169 /* Build configuration list for PBXNativeTarget "Tabby the CopycatUITests" */;
+			buildPhases = (
+				942B7528254B5E0B00646169 /* Sources */,
+				942B7529254B5E0B00646169 /* Frameworks */,
+				942B752A254B5E0B00646169 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				942B7532254B5E0B00646169 /* PBXTargetDependency */,
+			);
+			name = "Tabby the CopycatUITests";
+			productName = "Tabby the CopycatUITests";
+			productReference = 942B752C254B5E0B00646169 /* Tabby the CopycatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		94413AA124806F9800329A04 /* Tabby the Copycat */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94413AD024806F9C00329A04 /* Build configuration list for PBXNativeTarget "Tabby the Copycat" */;
@@ -209,21 +360,47 @@
 			productReference = 94413AB524806F9C00329A04 /* Tabby the Copycat Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		947FDF41254BB53F0091710B /* TabbytheCopycatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 947FDF49254BB53F0091710B /* Build configuration list for PBXNativeTarget "TabbytheCopycatTests" */;
+			buildPhases = (
+				947FDF3E254BB53F0091710B /* Sources */,
+				947FDF3F254BB53F0091710B /* Frameworks */,
+				947FDF40254BB53F0091710B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				947FDF48254BB53F0091710B /* PBXTargetDependency */,
+			);
+			name = TabbytheCopycatTests;
+			productName = TabbytheCopycatTests;
+			productReference = 947FDF42254BB53F0091710B /* TabbytheCopycatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		94413A9A24806F9800329A04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = Wingover;
 				TargetAttributes = {
+					942B752B254B5E0B00646169 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 94413AA124806F9800329A04;
+					};
 					94413AA124806F9800329A04 = {
 						CreatedOnToolsVersion = 11.5;
 					};
 					94413AB424806F9C00329A04 = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					947FDF41254BB53F0091710B = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 94413AA124806F9800329A04;
 					};
 				};
 			};
@@ -242,11 +419,20 @@
 			targets = (
 				94413AA124806F9800329A04 /* Tabby the Copycat */,
 				94413AB424806F9C00329A04 /* Tabby the Copycat Extension */,
+				942B752B254B5E0B00646169 /* Tabby the CopycatUITests */,
+				947FDF41254BB53F0091710B /* TabbytheCopycatTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		942B752A254B5E0B00646169 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94413AA024806F9800329A04 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,9 +451,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		947FDF40254BB53F0091710B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		942B7528254B5E0B00646169 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				942B752F254B5E0B00646169 /* Tabby_the_CopycatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94413A9E24806F9800329A04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,26 +485,99 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94E57AD3254A2F6F00FDC861 /* TabExtractor.swift in Sources */,
+				94E57AD3254A2F6F00FDC861 /* SafariExtractor.swift in Sources */,
+				94F5FECF254BD0ED00FBE71D /* SafariExtracting.swift in Sources */,
 				94E57AD7254A389500FDC861 /* ClipboardAgent.swift in Sources */,
 				94E57ADC254A503900FDC861 /* BadgeUpdateAgent.swift in Sources */,
 				94413ADA24807D6100329A04 /* SafariExtensionHandler.swift in Sources */,
 				94E57AE2254A508300FDC861 /* LinksConstructor.swift in Sources */,
+				94B3DFAD254BA2970072B1DE /* BadgeUpdating.swift in Sources */,
 				94E57AE8254A51B900FDC861 /* TabManager.swift in Sources */,
+				94B3DFB8254BA2DE0072B1DE /* LinksConstructing.swift in Sources */,
+				94B3DF9D254BA24F0072B1DE /* Clipboarding.swift in Sources */,
+				94F5FEBA254BC4C000FBE71D /* TabClosing.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		947FDF3E254BB53F0091710B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94F5FE93254BB8DE00FBE71D /* LinksConstructor.swift in Sources */,
+				94F5FE8E254BB8D900FBE71D /* LinksConstructing.swift in Sources */,
+				94893FB7254BB5D900F25B10 /* LinksConstructingTests.swift in Sources */,
+				94F5FE99254BC3D100FBE71D /* BadgeUpdating_Tests.swift in Sources */,
+				94F5FEBB254BC4C000FBE71D /* TabClosing.swift in Sources */,
+				94F5FEC4254BC4C400FBE71D /* TabManager.swift in Sources */,
+				947FDF45254BB53F0091710B /* TabClosingTests.swift in Sources */,
+				94F5FE9E254BC3F600FBE71D /* BadgeUpdating.swift in Sources */,
+				94F5FEAD254BC42600FBE71D /* Clipboarding.swift in Sources */,
+				94F5FEA8254BC42400FBE71D /* ClipboardAgent.swift in Sources */,
+				94F5FEB3254BC44300FBE71D /* Clipboarding_Tests.swift in Sources */,
+				94F5FED0254BD0ED00FBE71D /* SafariExtracting.swift in Sources */,
+				94F5FEA3254BC3F900FBE71D /* BadgeUpdateAgent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		942B7532254B5E0B00646169 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94413AA124806F9800329A04 /* Tabby the Copycat */;
+			targetProxy = 942B7531254B5E0B00646169 /* PBXContainerItemProxy */;
+		};
 		94413AB824806F9C00329A04 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 94413AB424806F9C00329A04 /* Tabby the Copycat Extension */;
 			targetProxy = 94413AB724806F9C00329A04 /* PBXContainerItemProxy */;
 		};
+		947FDF48254BB53F0091710B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94413AA124806F9800329A04 /* Tabby the Copycat */;
+			targetProxy = 947FDF47254BB53F0091710B /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		942B7533254B5E0B00646169 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FVC2SFVFYG;
+				INFOPLIST_FILE = "Tabby the CopycatUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wingovers.Tabby-the-CopycatUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Tabby the Copycat";
+			};
+			name = Debug;
+		};
+		942B7534254B5E0B00646169 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FVC2SFVFYG;
+				INFOPLIST_FILE = "Tabby the CopycatUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wingovers.Tabby-the-CopycatUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Tabby the Copycat";
+			};
+			name = Release;
+		};
 		94413ACA24806F9C00329A04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -515,9 +789,58 @@
 			};
 			name = Release;
 		};
+		947FDF4A254BB53F0091710B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FVC2SFVFYG;
+				INFOPLIST_FILE = TabbytheCopycatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wingovers.TabbytheCopycatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tabby the Copycat.app/Contents/MacOS/Tabby the Copycat";
+			};
+			name = Debug;
+		};
+		947FDF4B254BB53F0091710B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FVC2SFVFYG;
+				INFOPLIST_FILE = TabbytheCopycatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wingovers.TabbytheCopycatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tabby the Copycat.app/Contents/MacOS/Tabby the Copycat";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		942B7535254B5E0B00646169 /* Build configuration list for PBXNativeTarget "Tabby the CopycatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				942B7533254B5E0B00646169 /* Debug */,
+				942B7534254B5E0B00646169 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		94413A9D24806F9800329A04 /* Build configuration list for PBXProject "Tabby the Copycat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -541,6 +864,15 @@
 			buildConfigurations = (
 				94413AD124806F9C00329A04 /* Debug */,
 				94413AD224806F9C00329A04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		947FDF49254BB53F0091710B /* Build configuration list for PBXNativeTarget "TabbytheCopycatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				947FDF4A254BB53F0091710B /* Debug */,
+				947FDF4B254BB53F0091710B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import SafariServices
+import AppKit
 
-class ClipboardAgent {
+class ClipboardAgent: Clipboarding {
     func copy(_ links: LinkResults) {
         let html = flatten(html: links.html)
         let plain = flatten(plain: links.plain)
@@ -34,3 +34,4 @@ private extension ClipboardAgent {
             .appending("\n")
     }
 }
+

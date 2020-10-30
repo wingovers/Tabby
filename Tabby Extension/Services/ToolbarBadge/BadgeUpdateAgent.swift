@@ -9,23 +9,24 @@
 import Foundation
 import SafariServices
 
-class BadgeUpdateAgent {
+class BadgeUpdateAgent: BadgeUpdating {
+    private let wink = NSImage(named: "ToolbarItemIconCopied.pdf")
+    private let unwink: NSImage? = nil
+    private let winkingDuration = 0.3
+    private let delayUntilReset = 1.5
 
     // Winks toolbar icon cat + flashes link count
     func update(_ window: SFSafariWindow, with count: Int) {
-        let wink = NSImage(named: "ToolbarItemIconCopied.pdf")
-        let unwink: NSImage? = nil
-
-        window.getToolbarItem { toolbar in
+        window.getToolbarItem { [self] toolbar in
             toolbar?.setImage(wink)
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + winkingDuration) {
                 toolbar?.setImage(unwink)
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + winkingDuration) {
                 toolbar?.setBadgeText(String(count))
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + delayUntilReset) {
                 toolbar?.setBadgeText(nil)
             }
         }
