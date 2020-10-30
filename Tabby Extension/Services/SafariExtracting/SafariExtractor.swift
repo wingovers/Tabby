@@ -9,12 +9,6 @@
 import Foundation
 import SafariServices
 
-func nowInSeconds() -> Int {
-    let now = Calendar.current.dateComponents([.second], from: Date())
-    return now.second!
-
-}
-
 class SafariExtractor: SafariExtracting {
 
     func page(in page: SFSafariPage) -> [LinkConstructingInput] {
@@ -23,11 +17,8 @@ class SafariExtractor: SafariExtracting {
     }
 
     func pages(in window: SFSafariWindow) -> [LinkConstructingInput] {
-        NSLog("\(#function) start \(nowInSeconds())")
-        let result = propertiesOfActivePages(from: everyPageInside(window))
+        propertiesOfActivePages(from: pages(inside: window))
             .asLinkInput()
-        NSLog("\(#function) end \(nowInSeconds())")
-        return result
     }
 
     func pages(to side: SliceDirection, of page: SFSafariPage) -> [LinkConstructingInput] {
@@ -36,24 +27,11 @@ class SafariExtractor: SafariExtracting {
     }
 
     func allSafariWindows() -> [LinkConstructingInput] {
-        var allPages = [SFSafariPage]()
-
-        let group = DispatchGroup()
-        group.enter()
-        DispatchQueue.global().async {
-            SFSafariApplication.getAllWindows { windows in
-                windows.enumerated().forEach { [self] (index, window) in
-                    allPages.append(contentsOf: everyPageInside(window))
-                    guard index == (windows.count - 1) else { return }
-                    group.leave()
-                }
-            }
-        }
-        _ = group.wait(timeout: .now() + 1)
-        return propertiesOfActivePages(from: allPages).asLinkInput()
+        propertiesOfActivePages(from: pages(inside: allWindows()))
+            .asLinkInput()
     }
 
-    func tabs(surrounding page: SFSafariPage) -> [SFSafariTab] {
+    func tabs(fromWindowContaining page: SFSafariPage) -> [SFSafariTab] {
         var allTabs = [SFSafariTab]()
 
         let group = DispatchGroup()
@@ -95,7 +73,7 @@ private extension SafariExtractor {
         return allProperties
     }
 
-    func everyPageInside(_ window: SFSafariWindow) -> [SFSafariPage] {
+    func pages(inside window: SFSafariWindow) -> [SFSafariPage] {
         var allPages = [SFSafariPage]()
 
         let group = DispatchGroup()
@@ -116,11 +94,36 @@ private extension SafariExtractor {
         return allPages
     }
 
+    func pages(inside windows: [SFSafariWindow]) -> [SFSafariPage] {
+        var allPages = [SFSafariPage]()
+
+        let group = DispatchGroup()
+
+        group.enter()
+        DispatchQueue.global().async {
+            windows.enumerated().forEach { (windowIndex, window) in
+                window.getAllTabs { tabs in
+                    tabs.enumerated().forEach { (tabIndex, tab) in
+                        tab.getActivePage { page in
+                            guard let page = page else { return }
+                            allPages.append(page)
+                            guard tabIndex == (tabs.count - 1),
+                                  windowIndex == (windows.count - 1)
+                                  else { return }
+                            group.leave()
+                        }
+                    }
+                }
+            }
+        }
+        _ = group.wait(timeout: .now() + 3)
+        return allPages
+    }
 
     func pages(to side: SliceDirection, of page: SFSafariPage) -> [SFSafariPage] {
         var allPages = [SFSafariPage]()
 
-        let allTabs = tabs(surrounding: page)
+        let allTabs = tabs(fromWindowContaining: page)
         guard let anchor = currentTab(of: page),
               let anchorPosition = allTabs.firstIndex(of: anchor)
         else { return allPages }
@@ -147,6 +150,24 @@ private extension SafariExtractor {
         }
         _ = group.wait(timeout: .now() + 2)
         return allPages
+    }
+
+    func allWindows() -> [SFSafariWindow] {
+        var allWindows = [SFSafariWindow]()
+
+        let group = DispatchGroup()
+        group.enter()
+        DispatchQueue.global().async {
+            SFSafariApplication.getAllWindows { windows in
+                windows.enumerated().forEach { (index, window) in
+                    allWindows.append(window)
+                    guard index == (windows.count - 1) else { return }
+                    group.leave()
+                }
+            }
+        }
+        _ = group.wait(timeout: .now() + 1)
+        return allWindows
     }
 
     func currentTab(of page: SFSafariPage) -> SFSafariTab? {

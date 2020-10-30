@@ -25,11 +25,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
 
     override func toolbarItemClicked(in window: SFSafariWindow) {
-        NSLog(#function, "start")
         let links = construct.links(from: extracted.pages(in: window))
         badge.update(window, with: links.count)
         clipboard.copy(links)
-        NSLog(#function, "end")
     }
 
     override func contextMenuItemSelected(withCommand command: String,
@@ -58,7 +56,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             badge.updateWindow(of: page, with: links.count)
 
         case "closeDupes":
-            close.duplicates(in: extracted.tabs(surrounding: page))
+            close.duplicates(in: extracted.tabs(fromWindowContaining: page))
 
         default:
             NSLog("Unknown context menu command received.")

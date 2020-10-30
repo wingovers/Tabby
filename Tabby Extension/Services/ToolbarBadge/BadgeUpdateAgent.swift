@@ -17,7 +17,6 @@ class BadgeUpdateAgent: BadgeUpdating {
 
     // Winks toolbar icon cat + flashes link count
     func update(_ window: SFSafariWindow, with count: Int) {
-        NSLog("\(#function) start \(nowInSeconds())")
         window.getToolbarItem { [self] toolbar in
             toolbar?.setImage(wink)
 
@@ -31,7 +30,6 @@ class BadgeUpdateAgent: BadgeUpdating {
                 toolbar?.setBadgeText(nil)
             }
         }
-        NSLog("\(#function) end \(nowInSeconds())")
     }
 
     func updateWindow(of page: SFSafariPage, with count: Int) {

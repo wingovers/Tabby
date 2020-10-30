@@ -11,7 +11,6 @@ import AppKit
 
 class ClipboardAgent: Clipboarding {
     func copy(_ links: LinkResults) {
-        NSLog("\(#function) start \(nowInSeconds())")
         let html = flatten(html: links.html)
         let plain = flatten(plain: links.plain)
 
@@ -21,7 +20,6 @@ class ClipboardAgent: Clipboarding {
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.writeObjects([pasteItem])
-        NSLog("\(#function) end \(nowInSeconds())")
     }
 }
 

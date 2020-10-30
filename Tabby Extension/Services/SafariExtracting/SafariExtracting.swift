@@ -14,7 +14,7 @@ protocol SafariExtracting {
     func pages(in window: SFSafariWindow) -> [LinkConstructingInput]
     func pages(to side: SliceDirection, of page: SFSafariPage) -> [LinkConstructingInput]
     func allSafariWindows() -> [LinkConstructingInput]
-    func tabs(surrounding page: SFSafariPage) -> [SFSafariTab]
+    func tabs(fromWindowContaining page: SFSafariPage) -> [SFSafariTab]
 }
 
 enum SliceDirection {
